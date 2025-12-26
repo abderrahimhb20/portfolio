@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abderrahim Elhammou Brahimi - Cybersecurity Professional specializing in offensive security, penetration testing, and vulnerability research">
     <title>Abderrahim Elhammou Brahimi - Cybersecurity Professional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -92,6 +93,15 @@
             width: 100%;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         .hero {
             min-height: 100vh;
             display: flex;
@@ -120,6 +130,7 @@
         .hero-content {
             z-index: 1;
             text-align: center;
+            padding-top: 80px;
         }
 
         .hero h1 {
@@ -138,7 +149,7 @@
 
         .hero p {
             font-size: 20px;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 30px;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
@@ -159,6 +170,7 @@
             gap: 20px;
             animation: fadeInUp 0.8s ease-out 0.6s backwards;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -229,7 +241,7 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -309,7 +321,7 @@
 
         .certifications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -368,6 +380,9 @@
             color: var(--primary);
             text-decoration: none;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .project-links a:hover {
@@ -423,6 +438,7 @@
             justify-content: center;
             gap: 20px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .social-links a {
@@ -437,11 +453,29 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 48px; }
-            .hero h2 { font-size: 32px; }
+            .hero h1 { font-size: 36px; }
+            .hero h2 { font-size: 28px; }
+            .hero p { font-size: 16px; }
             .about-content { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .cta-buttons { flex-direction: column; }
+            .mobile-menu-btn { display: block; }
+            .nav-links { 
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            .nav-links.active { display: flex; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .experience-timeline { padding-left: 30px; }
+            .experience-timeline::before { left: 10px; }
+            .experience-item::before { left: -34px; }
         }
     </style>
 </head>
@@ -449,6 +483,9 @@
     <header>
         <nav class="container">
             <div class="logo">&lt;Cybrahimi/&gt;</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -466,7 +503,7 @@
             <div class="hero-content">
                 <h1>Abderrahim Elhammou Brahimi</h1>
                 <h2>Cybersecurity Professional</h2>
-                <p>Digital Infrastructure student specializing in Cybersecurity. Passionate about offensive security, system and network administration, and automation. Experienced in vulnerability research on HackerOne and Bugcrowd platforms.</p>
+                <p>Digital Infrastructure student specializing in Cybersecurity at ISTA SYBA. Passionate about offensive security, penetration testing, and vulnerability research. Active bug bounty hunter on HackerOne and Bugcrowd platforms.</p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">Get In Touch</a>
                     <a href="#projects" class="btn btn-secondary">View My Work</a>
@@ -480,20 +517,20 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a dedicated cybersecurity professional currently studying Digital Infrastructure with a specialization in Cybersecurity at ISTA Sidi Youssef Ben Ali (SYBA).</p>
-                    <p>My passion lies in offensive security, where I actively hunt for vulnerabilities on platforms like HackerOne and Bugcrowd. I thrive on solving complex problems and continuously expanding my knowledge in the ever-evolving field of cybersecurity.</p>
-                    <p>With hands-on experience in penetration testing, vulnerability assessment, and security research, I'm committed to making the digital world more secure, one vulnerability at a time.</p>
+                    <p>I'm a dedicated cybersecurity professional currently studying Digital Infrastructure with a specialization in Cybersecurity at ISTA Sidi Youssef Ben Ali (SYBA) in Marrakech, Morocco.</p>
+                    <p>My passion lies in offensive security, where I actively hunt for vulnerabilities on platforms like HackerOne and Bugcrowd. I thrive on solving complex security challenges and continuously expanding my knowledge in penetration testing, vulnerability assessment, and security research.</p>
+                    <p>I'm currently seeking an internship opportunity (PFE) starting in March in various cybersecurity domains including SOC operations, penetration testing, infrastructure security, incident response, and digital forensics (DFIR).</p>
                 </div>
                 <div class="about-highlights">
                     <div class="skill-card">
                         <i class="fas fa-shield-alt"></i>
                         <h3>Security First</h3>
-                        <p>Focused on identifying and mitigating security vulnerabilities before they can be exploited.</p>
+                        <p>Focused on identifying and mitigating security vulnerabilities before they can be exploited in real-world scenarios.</p>
                     </div>
                     <div class="skill-card">
                         <i class="fas fa-code"></i>
                         <h3>Technical Excellence</h3>
-                        <p>Proficient in multiple programming languages and security tools for comprehensive assessments.</p>
+                        <p>Proficient in multiple programming languages, security tools, and frameworks for comprehensive security assessments.</p>
                     </div>
                 </div>
             </div>
@@ -507,11 +544,11 @@
                 <div class="skill-card">
                     <i class="fas fa-bug"></i>
                     <h3>Security & Pentesting</h3>
-                    <p>Vulnerability assessment, exploitation, web and infrastructure audits, bug bounty hunting on HackerOne and Bugcrowd</p>
+                    <p>Vulnerability assessment, exploitation, web and infrastructure audits, bug bounty hunting on HackerOne and Bugcrowd, incident response, and digital forensics</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-search"></i>
-                    <h3>Reconnaissance</h3>
+                    <h3>Reconnaissance Tools</h3>
                     <p>Nmap, Nessus, Nikto, Nuclei, Google Dorking, theHarvester, SpiderFoot, recon-ng, subfinder, Maltego, Shodan</p>
                 </div>
                 <div class="skill-card">
@@ -522,12 +559,12 @@
                 <div class="skill-card">
                     <i class="fas fa-network-wired"></i>
                     <h3>Networking</h3>
-                    <p>Network design, network security, TCP/IP, routing, switching, Wireshark</p>
+                    <p>Network design, network security, TCP/IP, routing, switching, Wireshark, CCNA concepts</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-server"></i>
                     <h3>Systems Administration</h3>
-                    <p>Windows Server, Active Directory, Microsoft Server, user management, permissions, deployment</p>
+                    <p>Windows Server, Active Directory, Linux (Debian, Kali), user management, permissions, deployment</p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-cube"></i>
@@ -553,22 +590,22 @@
             <h2 class="section-title">Experience & Education</h2>
             <div class="experience-timeline">
                 <div class="experience-item">
-                    <h3>Freelance Security Researcher</h3>
+                    <h3>Security Researcher</h3>
                     <div class="date">April 2025 - Present</div>
                     <p><strong>HackerOne & Bugcrowd</strong></p>
-                    <p>Conducting vulnerability research on various platforms. Writing detailed technical reports and communicating with security teams for validation and remediation of security flaws.</p>
+                    <p>Conducting vulnerability research on various platforms and programs. Writing detailed technical reports and communicating with security teams for validation and remediation of security flaws.</p>
                 </div>
                 <div class="experience-item">
                     <h3>Digital Infrastructure - Cybersecurity Specialization</h3>
                     <div class="date">2024 - Present</div>
                     <p><strong>ISTA Sidi Youssef Ben Ali (SYBA)</strong></p>
-                    <p>Focused training in cybersecurity, infrastructure management, network security, and penetration testing.</p>
+                    <p>Focused training in cybersecurity, infrastructure management, network security, penetration testing, incident response, and digital forensics.</p>
                 </div>
                 <div class="experience-item">
                     <h3>Baccalaureate in Physical Sciences</h3>
                     <div class="date">2023 - 2024</div>
                     <p><strong>Lycée Al Massar</strong></p>
-                    <p>Foundation in scientific principles and analytical thinking.</p>
+                    <p>Foundation in scientific principles, analytical thinking, and problem-solving methodologies.</p>
                 </div>
             </div>
         </div>
@@ -589,6 +626,14 @@
                 <div class="cert-badge">
                     <i class="fas fa-certificate"></i>
                     <p><strong>Offensive Security Operations</strong><br>Cybrary</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <p><strong>CCNA: Switching, Routing, and Wireless Essentials</strong><br>Cisco</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <p><strong>CCNA: Introduction to Networks</strong><br>Cisco</p>
                 </div>
                 <div class="cert-badge">
                     <i class="fas fa-certificate"></i>
@@ -618,6 +663,10 @@
                     <i class="fas fa-certificate"></i>
                     <p><strong>Computer Hardware Basics</strong><br>Cisco</p>
                 </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <p><strong>Advent of Cyber</strong><br>TryHackMe</p>
+                </div>
             </div>
         </div>
     </section>
@@ -627,10 +676,19 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Cybrahimi-tool</h3>
+                    <h3>Cybrahimi-DOS Tool</h3>
                     <p>Demonstrative DoS testing tool developed using hping3, ping, and network utilities to simulate attack vectors in controlled environments. Built for educational and security research purposes.</p>
                     <div class="project-links">
                         <a href="https://github.com/abderrahimhb20/Cybrahimi-tool" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Cybrahimi-Scan</h3>
+                    <p>Network port scanner tool developed in Python for detecting active ports and services. Designed for security analysis in educational and controlled environments.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/abderrahimhb20/Cybrahimi-scan" target="_blank">
                             <i class="fab fa-github"></i> View on GitHub
                         </a>
                     </div>
@@ -642,6 +700,7 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 18px;">Looking for an internship (PFE) starting March 2025 in cybersecurity domains: SOC, penetration testing, infrastructure security, incident response, and DFIR.</p>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -665,22 +724,22 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://linkedin.com/in/abderrahime-elhammou-brahimi" target="_blank" title="LinkedIn">
+                <a href="https://linkedin.com/in/abderrahime-elhammou-brahimi" target="_blank" title="LinkedIn" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/abderrahimhb20" target="_blank" title="GitHub">
+                <a href="https://github.com/abderrahimhb20" target="_blank" title="GitHub" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://hackerone.com/cybrahimi" target="_blank" title="HackerOne">
+                <a href="https://hackerone.com/cybrahimi" target="_blank" title="HackerOne" aria-label="HackerOne">
                     <i class="fas fa-user-secret"></i>
                 </a>
-                <a href="https://bugcrowd.com/cybrahimi" target="_blank" title="Bugcrowd">
+                <a href="https://bugcrowd.com/cybrahimi" target="_blank" title="Bugcrowd" aria-label="Bugcrowd">
                     <i class="fas fa-bug"></i>
                 </a>
-                <a href="https://www.facebook.com/abderrahim.hb.563351" target="_blank" title="Facebook">
+                <a href="https://www.facebook.com/abderrahim.hb.563351" target="_blank" title="Facebook" aria-label="Facebook">
                     <i class="fab fa-facebook"></i>
                 </a>
-                <a href="https://x.com/abderrahim_exe" target="_blank" title="X (Twitter)">
+                <a href="https://x.com/abderrahim_exe" target="_blank" title="X (Twitter)" aria-label="X">
                     <i class="fab fa-x-twitter"></i>
                 </a>
             </div>
@@ -689,16 +748,25 @@
     </footer>
 
     <script>
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });
 
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
