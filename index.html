@@ -1,843 +1,636 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Abderrahim Elhammou Brahimi - Cybersecurity Professional specializing in offensive security, penetration testing, and vulnerability research">
-    <title>Abderrahim Elhammou Brahimi - Cybersecurity Professional</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #00ff88;
-            --secondary: #0a192f;
-            --accent: #64ffda;
-            --text: #8892b0;
-            --text-light: #ccd6f6;
-            --bg-dark: #0a192f;
-            --bg-light: #112240;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a192f 0%, #1a2332 100%);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(10, 25, 47, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .hero-content {
-            z-index: 1;
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        .hero h1 {
-            font-size: 72px;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero h2 {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--secondary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--primary);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--secondary);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            font-size: 42px;
-            color: var(--text-light);
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: var(--primary);
-            margin: 20px auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-card {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: all 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
-        }
-
-        .skill-card i {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .skill-card h3 {
-            color: var(--text-light);
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .experience-timeline {
-            position: relative;
-            padding-left: 50px;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background: var(--primary);
-        }
-
-        .experience-item {
-            position: relative;
-            margin-bottom: 50px;
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 3px solid var(--primary);
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -44px;
-            top: 30px;
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-        }
-
-        .experience-item h3 {
-            color: var(--text-light);
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .experience-item .date {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .cert-badge {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .cert-badge:hover {
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .cert-badge i {
-            font-size: 30px;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
-        }
-
-        .project-card h3 {
-            color: var(--text-light);
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .project-links {
-            margin-top: 20px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .project-links a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .project-links a:hover {
-            color: var(--accent);
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .contact-item {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .contact-item i {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .contact-item a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary);
-        }
-
-        footer {
-            background: var(--secondary);
-            padding: 30px 0;
-            text-align: center;
-            border-top: 1px solid rgba(100, 255, 218, 0.1);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            color: var(--text);
-            font-size: 24px;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 36px; }
-            .hero h2 { font-size: 28px; }
-            .hero p { font-size: 16px; }
-            .about-content { grid-template-columns: 1fr; }
-            .mobile-menu-btn { display: block; }
-            .nav-links { 
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: var(--bg-dark);
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-            }
-            .nav-links.active { display: flex; }
-            .cta-buttons { flex-direction: column; align-items: center; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .experience-timeline { padding-left: 30px; }
-            .experience-timeline::before { left: 10px; }
-            .experience-item::before { left: -34px; }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Abderrahime Elhammou Brahimi — Cybersecurity Specialist</title>
+<meta name="description" content="Portfolio of Abderrahime Elhammou Brahimi — cybersecurity specialist, bug hunter on Bugcrowd, offensive & defensive security, SOC and pentest tooling." />
+<meta property="og:title" content="Abderrahime Elhammou Brahimi — Cybersecurity Specialist" />
+<meta property="og:description" content="Bug hunter, pentester and SOC-oriented engineer based in Marrakech." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080a;
+  --bg-2:#0a1013;
+  --card:#0d1518;
+  --border:#1a2a2f;
+  --border-2:#26383e;
+  --muted:#7a8a8f;
+  --fg:#d6e6e8;
+  --primary:#39ff88;
+  --primary-2:#22c96b;
+  --primary-glow:rgba(57,255,136,.35);
+  --danger:#ff5c6c;
+  --warn:#ffb454;
+  --accent:#66d9ef;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--display);
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* Background layers */
+.bg-fx{position:fixed;inset:0;pointer-events:none;z-index:0}
+.bg-grid{
+  background-image:
+    linear-gradient(rgba(57,255,136,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(57,255,136,.06) 1px,transparent 1px);
+  background-size:40px 40px;
+  opacity:.6;
+  mask-image:radial-gradient(ellipse at 50% 30%,#000 40%,transparent 80%);
+}
+.bg-scanlines{
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);
+  mix-blend-mode:overlay;opacity:.4;
+}
+.bg-glow{
+  position:fixed;left:50%;top:-20%;width:60vh;height:60vh;transform:translateX(-50%);
+  background:var(--primary);border-radius:9999px;filter:blur(120px);opacity:.25;
+}
+
+/* Layout */
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;position:relative;z-index:10}
+@media(min-width:768px){.wrap{padding:0 32px}}
+
+/* Nav */
+header.nav{
+  position:sticky;top:0;z-index:30;
+  border-bottom:1px solid rgba(26,42,47,.6);
+  background:rgba(5,8,10,.8);backdrop-filter:blur(10px);
+}
+.nav-inner{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+@media(min-width:768px){.nav-inner{padding:12px 32px}}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14px}
+.brand-badge{display:inline-flex;align-items:center;justify-content:center;height:24px;width:24px;background:var(--primary);color:#001208;border-radius:3px;font-size:10px;font-weight:700}
+.brand-dot{color:var(--primary)}
+.nav-links{display:none;gap:4px}
+@media(min-width:768px){.nav-links{display:flex}}
+.nav-links a{
+  padding:6px 12px;font-size:12px;color:var(--muted);border-radius:3px;
+  transition:.15s;font-family:var(--display);
+}
+.nav-links a:hover{background:#101a1d;color:var(--primary)}
+.nav-links a .slash{color:rgba(57,255,136,.6)}
+.cta-hire{
+  display:none;padding:6px 12px;border:1px solid rgba(57,255,136,.4);color:var(--primary);
+  border-radius:3px;font-size:12px;font-weight:500;transition:.15s;
+}
+@media(min-width:768px){.cta-hire{display:inline-flex}}
+.cta-hire:hover{background:var(--primary);color:#001208;box-shadow:0 0 24px var(--primary-glow)}
+.menu-btn{display:inline-flex;flex-direction:column;gap:4px;padding:8px;border:1px solid var(--border);border-radius:3px;background:transparent;cursor:pointer}
+@media(min-width:768px){.menu-btn{display:none}}
+.menu-btn span{height:2px;width:16px;background:var(--primary);display:block}
+.mobile-menu{display:none;border-top:1px solid var(--border);background:rgba(5,8,10,.95)}
+.mobile-menu.open{display:block}
+.mobile-menu .inner{max-width:1120px;margin:0 auto;padding:8px 20px;display:flex;flex-direction:column}
+.mobile-menu a{padding:12px 0;font-size:14px;color:var(--muted);border-bottom:1px solid rgba(26,42,47,.4)}
+.mobile-menu a:hover{color:var(--primary)}
+
+/* Hero */
+main{position:relative;z-index:10}
+.hero{padding:64px 0}
+@media(min-width:768px){.hero{padding:96px 0}}
+.status-line{display:flex;align-items:center;gap:12px;font-size:11px;text-transform:uppercase;letter-spacing:.25em;color:var(--muted);margin-bottom:24px}
+.pulse{display:inline-block;height:8px;width:8px;background:var(--primary);border-radius:9999px;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1.hero-title{
+  font-family:var(--display);font-weight:700;letter-spacing:-.02em;
+  font-size:40px;line-height:1.05;margin:0;
+}
+@media(min-width:640px){h1.hero-title{font-size:60px}}
+@media(min-width:768px){h1.hero-title{font-size:72px}}
+h1.hero-title .dot{color:var(--primary)}
+.lead{margin-top:24px;max-width:640px;font-size:16px;color:var(--muted)}
+@media(min-width:768px){.lead{font-size:18px}}
+.lead .hl{color:var(--primary)}
+
+.terminal{
+  margin-top:32px;padding:16px;border:1px solid rgba(57,255,136,.3);
+  background:rgba(13,21,24,.8);border-radius:8px;font-family:var(--mono);font-size:14px;
+  box-shadow:0 0 40px rgba(57,255,136,.15);
+}
+.term-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.term-dots{display:flex;gap:6px}
+.term-dots span{height:12px;width:12px;border-radius:9999px}
+.term-dots .d1{background:rgba(255,92,108,.7)}
+.term-dots .d2{background:rgba(255,180,84,.7)}
+.term-dots .d3{background:rgba(57,255,136,.7)}
+.term-path{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+.term-line{color:var(--primary);text-shadow:0 0 8px var(--primary-glow);white-space:pre}
+.caret{display:inline-block;width:8px;height:16px;background:var(--primary);margin-left:2px;vertical-align:middle;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:3px;font-size:14px;font-weight:600;transition:.15s;cursor:pointer;border:0}
+.btn-primary{background:var(--primary);color:#001208}
+.btn-primary:hover{box-shadow:0 0 32px var(--primary-glow)}
+.btn-ghost{background:rgba(26,42,47,.6);color:var(--fg);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:rgba(57,255,136,.6);color:var(--primary)}
+.btn-ghost .prompt{color:var(--primary)}
+
+.stats{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{border:1px solid var(--border);background:rgba(13,21,24,.6);padding:16px;border-radius:3px;backdrop-filter:blur(6px)}
+.stat-k{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+.stat-v{margin-top:4px;font-family:var(--display);font-weight:600;font-size:18px;color:var(--primary)}
+
+/* Ticker */
+.ticker{
+  margin:16px -20px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:rgba(26,42,47,.4);overflow:hidden;
+}
+@media(min-width:768px){.ticker{margin:16px -32px}}
+.ticker-track{display:flex;white-space:nowrap;animation:marquee 40s linear infinite;will-change:transform}
+.ticker-track span{margin:0 24px;font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:rgba(57,255,136,.8);font-weight:500}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Section headings */
+section{padding:64px 0}
+@media(min-width:768px){section{padding:96px 0}}
+.sh{margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.sh-tag{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--muted)}
+.sh-index{background:rgba(57,255,136,.1);color:var(--primary);padding:2px 8px;border-radius:3px;font-family:var(--mono)}
+.sh-cmd{font-family:var(--mono)}
+.sh-cmd .p{color:var(--primary)}
+.sh-title{margin:12px 0 0;font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.01em}
+@media(min-width:768px){.sh-title{font-size:36px}}
+.sh-sub{margin:8px 0 0;max-width:640px;color:var(--muted);font-size:14px}
+@media(min-width:768px){.sh-sub{font-size:16px}}
+
+/* Whoami */
+.whoami-grid{display:grid;gap:24px}
+@media(min-width:768px){.whoami-grid{grid-template-columns:3fr 2fr}}
+.card{border:1px solid var(--border);background:rgba(13,21,24,.7);border-radius:6px;padding:24px}
+@media(min-width:768px){.card{padding:32px}}
+.card.glow{border-color:rgba(57,255,136,.3);box-shadow:0 0 40px rgba(57,255,136,.12)}
+.whoami-p1{font-size:16px;color:rgba(214,230,232,.9);margin:0}
+.whoami-p1 .hl{color:var(--primary)}
+.whoami-p2{margin:16px 0 0;font-size:14px;color:var(--muted)}
+.whoami-p2 .hl{color:var(--fg)}
+.lang-grid{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
+.lang{border:1px solid var(--border);background:rgba(5,8,10,.5);padding:12px;border-radius:3px}
+.lang-k{font-size:12px;color:var(--muted)}
+.lang-v{margin-top:4px;font-size:14px;font-weight:600;color:var(--primary)}
+.id-title{font-family:var(--mono);font-size:12px;color:var(--muted)}
+dl.id-list{margin:16px 0 0;padding:0;font-size:14px}
+dl.id-list > div{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;border-bottom:1px solid rgba(26,42,47,.6);padding-bottom:8px;margin-bottom:8px}
+dl.id-list dt{width:96px;color:rgba(57,255,136,.8);margin:0}
+dl.id-list dd{flex:1;margin:0;color:var(--fg)}
+
+/* Experience */
+.exp-list{display:flex;flex-direction:column;gap:24px}
+.exp{border:1px solid var(--border);background:rgba(13,21,24,.7);border-radius:6px;padding:24px;transition:.15s}
+@media(min-width:768px){.exp{padding:32px}}
+.exp:hover{border-color:rgba(57,255,136,.6)}
+.exp-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+.chip{font-size:10px;text-transform:uppercase;letter-spacing:.2em;padding:2px 8px;border-radius:3px;display:inline-flex;align-items:center;gap:4px}
+.chip-active{background:rgba(57,255,136,.15);color:var(--primary)}
+.chip-upcoming{background:rgba(102,217,239,.15);color:var(--accent)}
+.exp-meta{display:flex;align-items:center;gap:8px;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+.exp-role{margin:8px 0 0;font-family:var(--display);font-weight:600;font-size:20px}
+@media(min-width:768px){.exp-role{font-size:22px}}
+.exp-org{margin-top:4px;font-size:14px;color:var(--primary)}
+.exp-bullets{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:rgba(214,230,232,.85)}
+.exp-bullets li{display:flex;gap:12px}
+.exp-bullets li::before{content:"";flex:none;margin-top:8px;height:6px;width:6px;background:var(--primary);border-radius:9999px}
+
+/* Projects & Blogs cards */
+.grid-3{display:grid;gap:24px;grid-template-columns:1fr}
+@media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+.grid-2{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:768px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+.pcard{
+  display:flex;flex-direction:column;border:1px solid var(--border);background:rgba(13,21,24,.7);
+  border-radius:6px;padding:24px;transition:.15s;overflow:hidden;
+}
+.pcard:hover{border-color:var(--primary);box-shadow:0 0 32px var(--primary-glow)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.pcard-id{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+.pcard-tag{background:rgba(57,255,136,.1);color:var(--primary);padding:2px 8px;border-radius:3px;font-size:10px;text-transform:uppercase;letter-spacing:.2em}
+.pcard h3{font-family:var(--display);font-size:20px;font-weight:700;margin:0;color:var(--fg)}
+.pcard:hover h3{color:var(--primary)}
+.pcard p{margin:12px 0 0;flex:1;font-size:14px;color:var(--muted)}
+.stack{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
+.stack span{border:1px solid var(--border);background:rgba(5,8,10,.6);padding:2px 8px;border-radius:3px;font-size:10px;color:rgba(214,230,232,.8)}
+.pcard-cta{margin-top:24px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--primary)}
+.pcard-cta .arrow{transition:.15s}
+.pcard:hover .pcard-cta .arrow{transform:translateX(4px)}
+
+/* Skills */
+.skills-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:768px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.skills-grid{grid-template-columns:repeat(3,1fr)}}
+.scard{border:1px solid var(--border);background:rgba(13,21,24,.7);border-radius:6px;padding:20px;transition:.15s}
+.scard:hover{border-color:rgba(57,255,136,.5)}
+.scard-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.scard h3{margin:0;font-family:var(--display);font-size:16px;font-weight:600;color:var(--primary)}
+.scard-count{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{border:1px solid var(--border);background:rgba(5,8,10,.6);padding:4px 8px;border-radius:3px;font-size:12px;color:rgba(214,230,232,.85)}
+
+/* Certs */
+.certs{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:640px){.certs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.certs{grid-template-columns:repeat(3,1fr)}}
+.cert{display:flex;gap:12px;border:1px solid var(--border);background:rgba(13,21,24,.6);padding:16px;border-radius:6px;transition:.15s}
+.cert:hover{border-color:rgba(57,255,136,.5)}
+.cert-i{font-family:var(--mono);font-size:10px;color:rgba(57,255,136,.7);margin-top:2px}
+.cert-n{font-size:14px;font-weight:500;color:var(--fg)}
+.cert-issuer{margin-top:2px;font-size:12px;color:var(--muted)}
+
+/* Contact */
+.contact-grid{display:grid;gap:24px;grid-template-columns:1fr}
+@media(min-width:768px){.contact-grid{grid-template-columns:3fr 2fr}}
+.secure{border:1px solid rgba(57,255,136,.4);background:rgba(13,21,24,.7);padding:24px;border-radius:6px;box-shadow:0 0 40px rgba(57,255,136,.12)}
+@media(min-width:768px){.secure{padding:32px}}
+.secure-title{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.secure-lines{margin-top:16px;display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:14px}
+.secure-lines .p{color:var(--primary)}
+.secure-lines .m{color:var(--muted)}
+.mail-btn{
+  margin-top:32px;display:inline-flex;align-items:center;gap:12px;background:var(--primary);color:#001208;
+  padding:14px 22px;border-radius:3px;font-size:16px;font-weight:600;transition:.15s;
+}
+.mail-btn:hover{box-shadow:0 0 32px var(--primary-glow)}
+ul.channels{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.channel{
+  display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);
+  background:rgba(13,21,24,.6);padding:12px 16px;border-radius:6px;transition:.15s;
+}
+.channel:hover{border-color:rgba(57,255,136,.5);color:var(--primary)}
+.channel-left{display:flex;align-items:center;gap:12px}
+.channel-icon{
+  flex:none;display:inline-flex;align-items:center;justify-content:center;
+  height:36px;width:36px;border:1px solid var(--border);background:rgba(5,8,10,.6);
+  border-radius:3px;color:var(--primary);
+}
+.channel-icon svg{width:16px;height:16px}
+.channel-k{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+.channel-v{margin-top:2px;font-size:14px;color:var(--fg)}
+.channel-arrow{color:var(--primary)}
+
+/* Footer */
+footer{margin-top:64px;border-top:1px solid var(--border);padding:32px 0;font-size:12px;color:var(--muted)}
+.foot-inner{display:flex;flex-direction:column;gap:16px;justify-content:space-between}
+@media(min-width:768px){.foot-inner{flex-direction:row;align-items:center}}
+.foot-inner .p{color:var(--primary)}
+.foot-inner div{font-family:var(--mono)}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">&lt;Cybrahimi/&gt;</div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="bg-fx bg-grid"></div>
+<div class="bg-fx bg-scanlines"></div>
+<div class="bg-glow"></div>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Abderrahim Elhammou Brahimi</h1>
-                <h2>Cybersecurity Professional</h2>
-                <p>Digital Infrastructure student specializing in Cybersecurity at ISTA SYBA. Passionate about offensive security, penetration testing, and vulnerability research. Active bug bounty hunter on HackerOne and Bugcrowd platforms.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-badge">AH</span>
+      <span>abderrahim<span class="brand-dot">.hb</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#whoami"><span class="slash">./</span>whoami</a>
+      <a href="#experience"><span class="slash">./</span>experience</a>
+      <a href="#projects"><span class="slash">./</span>projects</a>
+      <a href="#skills"><span class="slash">./</span>skills</a>
+      <a href="#certs"><span class="slash">./</span>certs</a>
+      <a href="#blogs"><span class="slash">./</span>blogs</a>
+      <a href="#contact"><span class="slash">./</span>contact</a>
+    </nav>
+    <a href="#contact" class="cta-hire">$ hire --me</a>
+    <button class="menu-btn" id="menuBtn" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="inner">
+      <a href="#whoami">./whoami</a>
+      <a href="#experience">./experience</a>
+      <a href="#projects">./projects</a>
+      <a href="#skills">./skills</a>
+      <a href="#certs">./certs</a>
+      <a href="#blogs">./blogs</a>
+      <a href="#contact">./contact</a>
+    </div>
+  </div>
+</header>
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a dedicated cybersecurity professional currently studying Digital Infrastructure with a specialization in Cybersecurity at ISTA Sidi Youssef Ben Ali (SYBA) in Marrakech, Morocco.</p>
-                    <p>My passion lies in offensive security, where I actively hunt for vulnerabilities on platforms like HackerOne and Bugcrowd. I thrive on solving complex security challenges and continuously expanding my knowledge in penetration testing, vulnerability assessment, and security research.</p>
-                </div>
-                <div class="about-highlights">
-                    <div class="skill-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Security First</h3>
-                        <p>Focused on identifying and mitigating security vulnerabilities before they can be exploited in real-world scenarios.</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-code"></i>
-                        <h3>Technical Excellence</h3>
-                        <p>Proficient in multiple programming languages, security tools, and frameworks for comprehensive security assessments.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<main>
+<div class="wrap">
 
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-bug"></i>
-                    <h3>Security & Pentesting</h3>
-                    <p>Vulnerability assessment, exploitation, web and infrastructure audits, bug bounty hunting on HackerOne and Bugcrowd, incident response, and digital forensics</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-search"></i>
-                    <h3>Reconnaissance Tools</h3>
-                    <p>Nmap, Nessus, Nikto, Nuclei, Google Dorking, theHarvester, SpiderFoot, recon-ng, subfinder, Maltego, Shodan</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Web Applications</h3>
-                    <p>Burp Suite, OWASP ZAP, HTML, CSS, JavaScript, PHP, MySQL, MongoDB, Node.js</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Networking</h3>
-                    <p>Network design, network security, TCP/IP, routing, switching, Wireshark, CCNA concepts</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-server"></i>
-                    <h3>Systems Administration</h3>
-                    <p>Windows Server, Active Directory, Linux (Debian, Kali), user management, permissions, deployment</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cube"></i>
-                    <h3>Virtualization</h3>
-                    <p>VMware, VirtualBox, Proxmox, VMware ESXi, Hyper-V, Docker</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-code-branch"></i>
-                    <h3>Programming</h3>
-                    <p>Python, Bash, PowerShell, JavaScript, C</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Mobile Development</h3>
-                    <p>Flutter for cross-platform mobile application development</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="top" class="hero">
+  <div class="status-line"><span class="pulse"></span><span>system online · marrakech, ma · uptime 24/7</span></div>
+  <h1 class="hero-title">Abderrahime<br>Elhammou Brahimi<span class="dot">.</span></h1>
+  <p class="lead">Cybersecurity specialist focused on <span class="hl">offensive &amp; defensive security</span>. Bug hunter on Bugcrowd, builder of pentest tooling, and SOC-oriented engineer. I break systems so I can harden them.</p>
 
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Experience & Education</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <h3>Security Researcher</h3>
-                    <div class="date">April 2025 - Present</div>
-                    <p><strong>HackerOne & Bugcrowd</strong></p>
-                    <p>Conducting vulnerability research on various platforms and programs. Writing detailed technical reports and communicating with security teams for validation and remediation of security flaws.</p>
-                </div>
-                <div class="experience-item">
-                    <h3>Digital Infrastructure - Cybersecurity Specialization</h3>
-                    <div class="date">2024 - Present</div>
-                    <p><strong>ISTA Sidi Youssef Ben Ali (SYBA)</strong></p>
-                    <p>Focused training in cybersecurity, infrastructure management, network security, penetration testing, incident response, and digital forensics.</p>
-                </div>
-                <div class="experience-item">
-                    <h3>Baccalaureate in Physical Sciences</h3>
-                    <div class="date">2023 - 2024</div>
-                    <p><strong>Lycée Al Massar</strong></p>
-                    <p>Foundation in scientific principles, analytical thinking, and problem-solving methodologies.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="terminal">
+    <div class="term-bar">
+      <div class="term-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+      <span class="term-path">/dev/pts/0</span>
+    </div>
+    <div class="term-line" id="typewriter"><span id="tw"></span><span class="caret"></span></div>
+  </div>
 
-    <section id="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certifications-grid">
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Ethical Hacker</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Network Security Associate</strong><br>OPSWAT Academy</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Offensive Security Operations</strong><br>Cybrary</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>CCNA: Switching, Routing, and Wireless Essentials</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>CCNA: Introduction to Networks</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Introduction to Cybersecurity</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Endpoint Compliance Associate</strong><br>OPSWAT Academy</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Introduction to CIP</strong><br>OPSWAT Academy</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Python Essentials 1</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Networking Basics</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Linux Unhatched</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Computer Hardware Basics</strong><br>Cisco</p>
-                </div>
-                <div class="cert-badge">
-                    <i class="fas fa-certificate"></i>
-                    <p><strong>Advent of Cyber</strong><br>TryHackMe</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="actions">
+    <a href="#projects" class="btn btn-primary"><span>./view_projects</span><span>→</span></a>
+    <a href="#contact" class="btn btn-ghost"><span class="prompt">$</span> establish_contact</a>
+  </div>
 
-    <section id="blog" style="background: rgba(17, 34, 64, 0.3);">
-        <div class="container">
-            <h2 class="section-title">Blog & Research</h2>
-            <p style="text-align: center; margin-bottom: 50px; font-size: 18px; max-width: 800px; margin-left: auto; margin-right: auto;">Sharing knowledge and documenting my learning journey through PortSwigger Academy labs and cybersecurity research on Medium.</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <i class="fas fa-shield-alt" style="font-size: 32px; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Access Control Vulnerabilities</h3>
-                    <p>Deep dive into broken access control vulnerabilities through PortSwigger labs. Exploring vertical and horizontal privilege escalation, insecure direct object references, and access control bypass techniques.</p>
-                    <div class="project-links">
-                        <a href="https://medium.com/@abderrahimhb20/portsigger-access-control-vulnerabilities-f1a2173729a2" target="_blank">
-                            <i class="fab fa-medium"></i> Read on Medium
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-folder-open" style="font-size: 32px; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Path Traversal Attacks</h3>
-                    <p>Comprehensive guide to path traversal vulnerabilities and directory traversal attacks. Learning how attackers exploit file system access and defense mechanisms through practical PortSwigger exercises.</p>
-                    <div class="project-links">
-                        <a href="https://medium.com/@abderrahimhb20/portswigger-path-traversal-aa586f97ee55" target="_blank">
-                            <i class="fab fa-medium"></i> Read on Medium
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-code" style="font-size: 32px; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Server-Side Template Injection (SSTI)</h3>
-                    <p>Exploring template injection vulnerabilities and their exploitation. Understanding how attackers manipulate template engines to achieve remote code execution through hands-on PortSwigger labs.</p>
-                    <div class="project-links">
-                        <a href="https://medium.com/@abderrahimhb20/portswigger-server-side-template-injection-ssti-afcc07c13b61" target="_blank">
-                            <i class="fab fa-medium"></i> Read on Medium
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-terminal" style="font-size: 32px; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>OS Command Injection</h3>
-                    <p>Detailed analysis of command injection vulnerabilities. Learning how to identify, exploit, and prevent OS command injection flaws through practical PortSwigger lab scenarios.</p>
-                    <div class="project-links">
-                        <a href="https://medium.com/@abderrahimhb20/portswigger-os-command-injection-d87c9a3d8f8f" target="_blank">
-                            <i class="fab fa-medium"></i> Read on Medium
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="stats">
+    <div class="stat"><div class="stat-k">BUG BOUNTIES</div><div class="stat-v">Bugcrowd</div></div>
+    <div class="stat"><div class="stat-k">SPECIALTY</div><div class="stat-v">Web / Net / Sys</div></div>
+    <div class="stat"><div class="stat-k">TOOLING</div><div class="stat-v">3 released</div></div>
+    <div class="stat"><div class="stat-k">CERTS</div><div class="stat-v">16+</div></div>
+  </div>
+</section>
 
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Cybrahimi-DOS Tool</h3>
-                    <p>Demonstrative DoS testing tool developed using hping3, ping, and network utilities to simulate attack vectors in controlled environments. Built for educational and security research purposes.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/abderrahimhb20/Cybrahimi-tool" target="_blank">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Cybrahimi-Scan</h3>
-                    <p>Network port scanner tool developed in Python for detecting active ports and services. Designed for security analysis in educational and controlled environments.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/abderrahimhb20/Cybrahimi-scan" target="_blank">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="ticker">
+  <div class="ticker-track" id="ticker"></div>
+</div>
 
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+<section id="whoami">
+  <div class="sh">
+    <div class="sh-tag"><span class="sh-index">01</span><span class="sh-cmd"><span class="p">$</span> cat ./profile.md</span></div>
+    <h2 class="sh-title">whoami</h2>
+  </div>
+  <div class="whoami-grid">
+    <div class="card">
+      <p class="whoami-p1">Analytical cybersecurity specialist driven by problem-solving and passionate about offensive &amp; defensive security, systems, and networks. Hands-on experience in <span class="hl">bug hunting on Bugcrowd</span>, in web / network / system pentesting, and in developing automated security tooling.</p>
+      <p class="whoami-p2">Currently studying <span class="hl">Digital Infrastructure — Cybersecurity</span> at the Specialized Institute of Applied Technology (NTIC), 2024 — 2026. Interested in offensive security, AI-augmented tooling, systems programming, and CTF competitions.</p>
+      <div class="lang-grid">
+        <div class="lang"><div class="lang-k">Arabic</div><div class="lang-v">Native</div></div>
+        <div class="lang"><div class="lang-k">English</div><div class="lang-v">Fluent</div></div>
+        <div class="lang"><div class="lang-k">French</div><div class="lang-v">Intermediate</div></div>
+      </div>
+    </div>
+    <aside class="card glow">
+      <div class="id-title">// id_card.json</div>
+      <dl class="id-list">
+        <div><dt>"name":</dt><dd>"Abderrahime Elhammou Brahimi"</dd></div>
+        <div><dt>"role":</dt><dd>"Cybersecurity Specialist"</dd></div>
+        <div><dt>"location":</dt><dd>"Marrakech, Morocco"</dd></div>
+        <div><dt>"status":</dt><dd>"Open to opportunities"</dd></div>
+        <div><dt>"focus":</dt><dd>"Pentest · Bug Bounty · SOC"</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
 
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:abderrahimhb20@gmail.com">abderrahimhb20@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <a href="tel:+212684136110">+212 684 136 110</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>Lot Al Massar, Marrakech, Morocco</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="experience">
+  <div class="sh">
+    <div class="sh-tag"><span class="sh-index">02</span><span class="sh-cmd"><span class="p">$</span> git log --oneline experience/</span></div>
+    <h2 class="sh-title">Experience</h2>
+    <p class="sh-sub">Field work — from live bug bounty programs to network security deployments.</p>
+  </div>
+  <div class="exp-list" id="expList"></div>
+</section>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/abderrahime-elhammou-brahimi" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/abderrahimhb20" target="_blank" title="GitHub" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://hackerone.com/cybrahimi" target="_blank" title="HackerOne" aria-label="HackerOne">
-                    <i class="fas fa-user-secret"></i>
-                </a>
-                <a href="https://bugcrowd.com/cybrahimi" target="_blank" title="Bugcrowd" aria-label="Bugcrowd">
-                    <i class="fas fa-bug"></i>
-                </a>
-                <a href="https://www.facebook.com/abderrahim.hb.563351" target="_blank" title="Facebook" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://x.com/abderrahim_exe" target="_blank" title="X (Twitter)" aria-label="X">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-            </div>
-            <p>&copy; 2025 Abderrahim Elhammou Brahimi. All rights reserved.</p>
-        </div>
-    </footer>
+<section id="projects">
+  <div class="sh">
+    <div class="sh-tag"><span class="sh-index">03</span><span class="sh-cmd"><span class="p">$</span> ls -la ./projects/</span></div>
+    <h2 class="sh-title">Projects</h2>
+    <p class="sh-sub">Security tooling built for real workflows — recon, scanning, and AI-augmented reporting.</p>
+  </div>
+  <div class="grid-3" id="projectList"></div>
+</section>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            });
-        });
+<section id="skills">
+  <div class="sh">
+    <div class="sh-tag"><span class="sh-index">04</span><span class="sh-cmd"><span class="p">$</span> ./skills --list</span></div>
+    <h2 class="sh-title">Skills</h2>
+    <p class="sh-sub">The stack I reach for across offensive, defensive, and infrastructure work.</p>
+  </div>
+  <div class="skills-grid" id="skillsGrid"></div>
+</section>
 
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+<section id="certs">
+  <div class="sh">
+    <div class="sh-tag"><span class="sh-index">05</span><span class="sh-cmd"><span class="p">$</span> grep -r 'certified' ./credentials/</span></div>
+    <h2 class="sh-title">Certifications</h2>
+    <p class="sh-sub">Continuous learning across networking, offensive security, SOC, and endpoint compliance.</p>
+  </div>
+  <div class="certs" id="certList"></div>
+</section>
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+<section id="blogs">
+  <div class="sh">
+    <div class="sh-tag"><span class="sh-index">06</span><span class="sh-cmd"><span class="p">$</span> cat ./blogs/*.md | head</span></div>
+    <h2 class="sh-title">Blogs</h2>
+    <p class="sh-sub">Write-ups and technical notes on web security challenges — published on Medium.</p>
+  </div>
+  <div class="grid-2" id="blogList"></div>
+</section>
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+<section id="contact">
+  <div class="sh">
+    <div class="sh-tag"><span class="sh-index">07</span><span class="sh-cmd"><span class="p">$</span> ./establish_contact --secure</span></div>
+    <h2 class="sh-title">Establish contact</h2>
+    <p class="sh-sub">Open to bug bounty invites, pentest engagements, SOC roles, and collaborative research.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="secure">
+      <div class="secure-title">// secure_channel.sh</div>
+      <div class="secure-lines">
+        <div><span class="p">$</span> ssh contact@abderrahimhb.site</div>
+        <div class="m">→ handshake OK · session established</div>
+        <div><span class="p">$</span> send --priority high</div>
+      </div>
+      <a class="mail-btn" href="mailto:abderrahimhb20@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span>abderrahimhb20@gmail.com</span><span>↗</span>
+      </a>
+    </div>
+    <ul class="channels" id="channels"></ul>
+  </div>
+</section>
 
-        document.querySelectorAll('.skill-card, .experience-item, .project-card, .cert-badge').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
-        });
-    </script>
+</div>
+<footer>
+  <div class="wrap foot-inner">
+    <div><span class="p">$</span> echo "© <span id="year"></span> Abderrahime Elhammou Brahimi"</div>
+    <div>built with <span class="p">/dev/null</span> and lots of coffee ☕</div>
+  </div>
+</footer>
+</main>
+
+<script>
+/* ===== Data ===== */
+const EXPERIENCE=[
+  {role:"Security Researcher — Bug Bounty",org:"Bugcrowd",period:"Apr 2025 — Present",status:"ACTIVE",bullets:[
+    "Proactive vulnerability research on web applications via ethical exploitation and responsible disclosure.",
+    "Discovery of high-impact flaws with clear technical reports and remediation guidance."]},
+  {role:"Network Security Specialist — Internship (PFE)",org:"Nextwi",period:"Mar 2026 · 1 month",status:"UPCOMING",bullets:[
+    "Deployed a secure Wi-Fi hotspot (MikroTik, Wibox) with captive portal and RADIUS authentication.",
+    "Configured DHCP, NAT, firewall, and set up a WireGuard VPN for secure remote access.",
+    "Performance testing and validation across multiple devices."]}
+];
+const PROJECTS=[
+  {name:"SIJIL",tag:"framework",desc:"Web pentest automation framework — recon, vuln scanning (XSS / SQLi / LFI / SSRF / SSTI), and a local Ollama-powered AI agent for analysis & report generation.",stack:["Python","Ollama","Recon","Fuzzing"]},
+  {name:"Cybrahimi-scan",tag:"scanner",desc:"Advanced Python port scanner with service detection and a graphical interface built for fast reconnaissance.",stack:["Python","Tkinter","Sockets"]},
+  {name:"Cybrahimi-DOS",tag:"lab-tool",desc:"Educational Bash tool for studying DoS behaviour inside controlled lab environments. Defensive research only.",stack:["Bash","Linux","Lab"]}
+];
+const SKILLS=[
+  {title:"Pentest",items:["OSINT","Network / System / Web","OWASP Top 10","Privilege Escalation"]},
+  {title:"Offensive Tools",items:["Nmap","Burp Suite","OWASP ZAP","Nessus","Nikto","Nuclei","Wireshark","Metasploit","Shodan","Maltego","recon-ng"]},
+  {title:"SOC / Blue Team",items:["Wazuh","Elastic Security","Snort","AIDE","Threat Hunting","EDR","Log Analysis"]},
+  {title:"DFIR",items:["MITRE ATT&CK","Wireshark","Velociraptor","GRR Rapid Response","Windows Registry","Elastic Stack"]},
+  {title:"Networks & Systems",items:["TCP/IP","Routing & Switching","Windows Server","Active Directory","Debian / Kali","pfSense","OpenVPN","WireGuard","Hardening"]},
+  {title:"Virtualization",items:["VMware","VirtualBox","Proxmox","ESXi","Hyper-V","Docker"]},
+  {title:"Programming",items:["Python","Bash","PowerShell","JavaScript","HTML/CSS","MySQL","MongoDB"]}
+];
+const CERTS=[
+  ["CCNA: Enterprise Networking, Security & Automation","Cisco"],
+  ["CCNA: Switching, Routing & Wireless Essentials","Cisco"],
+  ["CCNA: Introduction to Networks","Cisco"],
+  ["Ethical Hacker","Cisco"],
+  ["Linux Unhatched","Cisco"],
+  ["Python Essentials 1","Cisco"],
+  ["Introduction to Cybersecurity","Cisco"],
+  ["Networking Basics","Cisco"],
+  ["Computer Hardware Basics","Cisco"],
+  ["Pre Security","TryHackMe"],
+  ["Advent of Cyber","TryHackMe"],
+  ["Network Security Associate","OPSWAT Academy"],
+  ["Endpoint Compliance Associate","OPSWAT Academy"],
+  ["Introduction to CIP","OPSWAT Academy"],
+  ["Offensive Security Operations","Cybrary"],
+  ["ST4F1T CTF — GCDSTE Club","ENSA Marrakech"]
+];
+const BLOGS=[
+  {title:"PortSwigger — Access Control Vulnerabilities",tag:"Access Control",href:"https://medium.com/@abderrahimhb20/portsigger-access-control-vulnerabilities-f1a2173729a2"},
+  {title:"PortSwigger — Path Traversal",tag:"Path Traversal",href:"https://medium.com/@abderrahimhb20/portswigger-path-traversal-aa586f97ee55"},
+  {title:"PortSwigger — Server-Side Template Injection (SSTI)",tag:"SSTI",href:"https://medium.com/@abderrahimhb20/portswigger-server-side-template-injection-ssti-afcc07c13b61"},
+  {title:"PortSwigger — OS Command Injection",tag:"Command Injection",href:"https://medium.com/@abderrahimhb20/portswigger-os-command-injection-d87c9a3d8f8f"}
+];
+const TICKER=["XSS","SQLi","SSRF","LFI","SSTI","RCE","IDOR","CSRF","AUTH-BYPASS","PRIV-ESC","SUBDOMAIN-TAKEOVER","OPEN-REDIRECT","PATH-TRAVERSAL","MITRE ATT&CK","OWASP TOP 10","BURP","NMAP","WAZUH","WIRESHARK"];
+
+/* ===== Icons ===== */
+const ICONS={
+  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+  phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>',
+  linkedin:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3v10ZM6.5 7.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM19 19h-3v-5.3c0-1.3-.5-2-1.6-2-1.2 0-1.9.8-1.9 2V19h-3V9h2.9v1.3c.5-.8 1.6-1.5 3-1.5 2.1 0 3.6 1.3 3.6 4V19Z"/></svg>',
+  github:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>',
+  medium:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.8 5.3A.9.9 0 0 0 2.5 4L0 1.5V1.2h7.7l6 13.1 5.2-13.1H24v.3l-2.1 2a.6.6 0 0 0-.2.6v14.6a.6.6 0 0 0 .2.6l2.1 2v.3h-10.5v-.3l2.1-2.1c.2-.2.2-.3.2-.6V6.7l-6 15.1h-.8l-7-15.1v10.2c-.1.4 0 .8.3 1.1l2.8 3.4v.3H0v-.3l2.8-3.4c.3-.3.4-.7.3-1.1V5.3Z"/></svg>',
+  pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
+};
+const CHANNELS=[
+  {label:"Email",value:"abderrahimhb20@gmail.com",href:"mailto:abderrahimhb20@gmail.com",icon:"mail"},
+  {label:"Phone",value:"+212 684 136 110",href:"tel:+212684136110",icon:"phone"},
+  {label:"LinkedIn",value:"linkedin.com/in/abderrahimhb",href:"https://linkedin.com/in/abderrahimhb",icon:"linkedin"},
+  {label:"GitHub",value:"github.com/abderrahimhb20",href:"https://github.com/abderrahimhb20",icon:"github"},
+  {label:"Medium",value:"medium.com/@abderrahimhb20",href:"https://medium.com/@abderrahimhb20",icon:"medium"},
+  {label:"Location",value:"Lot Al Massar, Marrakech, MA",icon:"pin"}
+];
+
+/* ===== Render ===== */
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+// ticker
+document.getElementById("ticker").innerHTML=[...TICKER,...TICKER].map(t=>`<span>▸ ${esc(t)}</span>`).join("");
+
+// experience
+document.getElementById("expList").innerHTML=EXPERIENCE.map(e=>`
+  <article class="exp">
+    <div class="exp-head"><div>
+      <div class="exp-meta">
+        <span class="chip ${e.status==='ACTIVE'?'chip-active':'chip-upcoming'}">● ${e.status}</span>
+        <span>${esc(e.period)}</span>
+      </div>
+      <h3 class="exp-role">${esc(e.role)}</h3>
+      <div class="exp-org">@ ${esc(e.org)}</div>
+    </div></div>
+    <ul class="exp-bullets">${e.bullets.map(b=>`<li><span>${esc(b)}</span></li>`).join("")}</ul>
+  </article>`).join("");
+
+// projects
+document.getElementById("projectList").innerHTML=PROJECTS.map((p,i)=>`
+  <a class="pcard" href="https://github.com/abderrahimhb20" target="_blank" rel="noreferrer">
+    <div class="pcard-top">
+      <span class="pcard-id">proj/${String(i+1).padStart(2,"0")}</span>
+      <span class="pcard-tag">${esc(p.tag)}</span>
+    </div>
+    <h3>${esc(p.name)}</h3>
+    <p>${esc(p.desc)}</p>
+    <div class="stack">${p.stack.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+    <div class="pcard-cta"><span>view repo</span><span class="arrow">→</span></div>
+  </a>`).join("");
+
+// skills
+document.getElementById("skillsGrid").innerHTML=SKILLS.map(g=>`
+  <div class="scard">
+    <div class="scard-head"><h3>${esc(g.title)}</h3><span class="scard-count">[${g.items.length}]</span></div>
+    <div class="tags">${g.items.map(i=>`<span>${esc(i)}</span>`).join("")}</div>
+  </div>`).join("");
+
+// certs
+document.getElementById("certList").innerHTML=CERTS.map(([n,i],idx)=>`
+  <div class="cert">
+    <span class="cert-i">${String(idx+1).padStart(2,"0")}</span>
+    <div><div class="cert-n">${esc(n)}</div><div class="cert-issuer">${esc(i)}</div></div>
+  </div>`).join("");
+
+// blogs
+document.getElementById("blogList").innerHTML=BLOGS.map((b,i)=>`
+  <a class="pcard" href="${b.href}" target="_blank" rel="noreferrer">
+    <div class="pcard-top">
+      <span class="pcard-id">post/${String(i+1).padStart(2,"0")}</span>
+      <span class="pcard-tag">${esc(b.tag)}</span>
+    </div>
+    <h3>${esc(b.title)}</h3>
+    <div class="pcard-cta">${ICONS.medium.replace("<svg","<svg width=\"16\" height=\"16\"")}<span>read on medium</span><span class="arrow">→</span></div>
+  </a>`).join("");
+
+// channels
+document.getElementById("channels").innerHTML=CHANNELS.map(c=>{
+  const inner=`<div class="channel">
+    <div class="channel-left">
+      <span class="channel-icon">${ICONS[c.icon]}</span>
+      <div><div class="channel-k">${esc(c.label)}</div><div class="channel-v">${esc(c.value)}</div></div>
+    </div>${c.href?'<span class="channel-arrow">→</span>':''}
+  </div>`;
+  return `<li>${c.href?`<a href="${c.href}" ${c.href.startsWith('http')?'target="_blank" rel="noreferrer"':''}>${inner}</a>`:inner}</li>`;
+}).join("");
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+/* Mobile menu */
+const menuBtn=document.getElementById("menuBtn"), mobileMenu=document.getElementById("mobileMenu");
+menuBtn.addEventListener("click",()=>mobileMenu.classList.toggle("open"));
+mobileMenu.addEventListener("click",e=>{if(e.target.tagName==="A")mobileMenu.classList.remove("open")});
+
+/* Typewriter */
+const lines=[
+  "root@abderrahim:~# whoami",
+  "root@abderrahim:~# nmap -A target.tld",
+  "root@abderrahim:~# ./sijil --recon --ai",
+  "root@abderrahim:~# hunt.sh --scope bugcrowd"
+];
+const tw=document.getElementById("tw");
+let li=0, ci=0, phase="type";
+function tick(){
+  const cur=lines[li];
+  if(phase==="type"){
+    if(ci<cur.length){ci++;tw.textContent=cur.slice(0,ci);setTimeout(tick,45)}
+    else{phase="hold";setTimeout(tick,1400)}
+  } else if(phase==="hold"){phase="del";setTimeout(tick,800)}
+  else{
+    if(ci>0){ci--;tw.textContent=cur.slice(0,ci);setTimeout(tick,20)}
+    else{phase="type";li=(li+1)%lines.length;setTimeout(tick,120)}
+  }
+}
+tick();
+</script>
 </body>
 </html>
-
-
