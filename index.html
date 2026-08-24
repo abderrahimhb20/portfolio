@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Abderrahime Elhammou Brahimi — Cybersecurity Specialist</title>
-<meta name="description" content="Portfolio of Abderrahime Elhammou Brahimi — cybersecurity specialist, bug hunter on Bugcrowd, offensive & defensive security, SOC and pentest tooling." />
+<meta name="description" content="Portfolio of Abderrahime Elhammou Brahimi — cybersecurity specialist, bug hunter on Bugcrowd, offensive & defensive security, SOC, SIEM and pentest tooling." />
 <meta property="og:title" content="Abderrahime Elhammou Brahimi — Cybersecurity Specialist" />
 <meta property="og:description" content="Bug hunter, pentester and SOC-oriented engineer based in Marrakech." />
 <meta property="og:type" content="website" />
@@ -14,81 +14,36 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#05080a;
-  --bg-2:#0a1013;
-  --card:#0d1518;
-  --border:#1a2a2f;
-  --border-2:#26383e;
-  --muted:#7a8a8f;
-  --fg:#d6e6e8;
-  --primary:#39ff88;
-  --primary-2:#22c96b;
-  --primary-glow:rgba(57,255,136,.35);
-  --danger:#ff5c6c;
-  --warn:#ffb454;
-  --accent:#66d9ef;
+  --bg:#05080a;--bg-2:#0a1013;--card:#0d1518;--border:#1a2a2f;--border-2:#26383e;
+  --muted:#7a8a8f;--fg:#d6e6e8;--primary:#39ff88;--primary-2:#22c96b;
+  --primary-glow:rgba(57,255,136,.35);--danger:#ff5c6c;--warn:#ffb454;--accent:#66d9ef;
   --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
   --display:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{
-  font-family:var(--display);
-  background:var(--bg);
-  color:var(--fg);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+body{font-family:var(--display);background:var(--bg);color:var(--fg);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* Background layers */
 .bg-fx{position:fixed;inset:0;pointer-events:none;z-index:0}
-.bg-grid{
-  background-image:
-    linear-gradient(rgba(57,255,136,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(57,255,136,.06) 1px,transparent 1px);
-  background-size:40px 40px;
-  opacity:.6;
-  mask-image:radial-gradient(ellipse at 50% 30%,#000 40%,transparent 80%);
-}
-.bg-scanlines{
-  background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);
-  mix-blend-mode:overlay;opacity:.4;
-}
-.bg-glow{
-  position:fixed;left:50%;top:-20%;width:60vh;height:60vh;transform:translateX(-50%);
-  background:var(--primary);border-radius:9999px;filter:blur(120px);opacity:.25;
-}
+.bg-grid{background-image:linear-gradient(rgba(57,255,136,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,136,.06) 1px,transparent 1px);background-size:40px 40px;opacity:.6;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 40%,transparent 80%);mask-image:radial-gradient(ellipse at 50% 30%,#000 40%,transparent 80%)}
+.bg-scanlines{background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);mix-blend-mode:overlay;opacity:.4}
+.bg-glow{position:fixed;left:50%;top:-20%;width:60vh;height:60vh;transform:translateX(-50%);background:var(--primary);border-radius:9999px;filter:blur(120px);opacity:.25;pointer-events:none;z-index:0}
 
-/* Layout */
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px;position:relative;z-index:10}
 @media(min-width:768px){.wrap{padding:0 32px}}
 
-/* Nav */
-header.nav{
-  position:sticky;top:0;z-index:30;
-  border-bottom:1px solid rgba(26,42,47,.6);
-  background:rgba(5,8,10,.8);backdrop-filter:blur(10px);
-}
+header.nav{position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(26,42,47,.6);background:rgba(5,8,10,.8);backdrop-filter:blur(10px)}
 .nav-inner{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
 @media(min-width:768px){.nav-inner{padding:12px 32px}}
-.brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
 .brand-badge{display:inline-flex;align-items:center;justify-content:center;height:24px;width:24px;background:var(--primary);color:#001208;border-radius:3px;font-size:10px;font-weight:700}
-.brand-dot{color:var(--primary)}
 .nav-links{display:none;gap:4px}
 @media(min-width:768px){.nav-links{display:flex}}
-.nav-links a{
-  padding:6px 12px;font-size:12px;color:var(--muted);border-radius:3px;
-  transition:.15s;font-family:var(--display);
-}
+.nav-links a{padding:6px 12px;font-size:12px;color:var(--muted);border-radius:3px;transition:.15s}
 .nav-links a:hover{background:#101a1d;color:var(--primary)}
-.nav-links a .slash{color:rgba(57,255,136,.6)}
-.cta-hire{
-  display:none;padding:6px 12px;border:1px solid rgba(57,255,136,.4);color:var(--primary);
-  border-radius:3px;font-size:12px;font-weight:500;transition:.15s;
-}
+.cta-hire{display:none;padding:6px 12px;border:1px solid rgba(57,255,136,.4);color:var(--primary);border-radius:3px;font-size:12px;font-weight:500;transition:.15s}
 @media(min-width:768px){.cta-hire{display:inline-flex}}
 .cta-hire:hover{background:var(--primary);color:#001208;box-shadow:0 0 24px var(--primary-glow)}
 .menu-btn{display:inline-flex;flex-direction:column;gap:4px;padding:8px;border:1px solid var(--border);border-radius:3px;background:transparent;cursor:pointer}
@@ -100,17 +55,13 @@ header.nav{
 .mobile-menu a{padding:12px 0;font-size:14px;color:var(--muted);border-bottom:1px solid rgba(26,42,47,.4)}
 .mobile-menu a:hover{color:var(--primary)}
 
-/* Hero */
 main{position:relative;z-index:10}
 .hero{padding:64px 0}
 @media(min-width:768px){.hero{padding:96px 0}}
 .status-line{display:flex;align-items:center;gap:12px;font-size:11px;text-transform:uppercase;letter-spacing:.25em;color:var(--muted);margin-bottom:24px}
 .pulse{display:inline-block;height:8px;width:8px;background:var(--primary);border-radius:9999px;animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-h1.hero-title{
-  font-family:var(--display);font-weight:700;letter-spacing:-.02em;
-  font-size:40px;line-height:1.05;margin:0;
-}
+h1.hero-title{font-weight:700;letter-spacing:-.02em;font-size:40px;line-height:1.05;margin:0}
 @media(min-width:640px){h1.hero-title{font-size:60px}}
 @media(min-width:768px){h1.hero-title{font-size:72px}}
 h1.hero-title .dot{color:var(--primary)}
@@ -118,11 +69,7 @@ h1.hero-title .dot{color:var(--primary)}
 @media(min-width:768px){.lead{font-size:18px}}
 .lead .hl{color:var(--primary)}
 
-.terminal{
-  margin-top:32px;padding:16px;border:1px solid rgba(57,255,136,.3);
-  background:rgba(13,21,24,.8);border-radius:8px;font-family:var(--mono);font-size:14px;
-  box-shadow:0 0 40px rgba(57,255,136,.15);
-}
+.terminal{margin-top:32px;padding:16px;border:1px solid rgba(57,255,136,.3);background:rgba(13,21,24,.8);border-radius:8px;font-family:var(--mono);font-size:14px;box-shadow:0 0 40px rgba(57,255,136,.15)}
 .term-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .term-dots{display:flex;gap:6px}
 .term-dots span{height:12px;width:12px;border-radius:9999px}
@@ -130,7 +77,7 @@ h1.hero-title .dot{color:var(--primary)}
 .term-dots .d2{background:rgba(255,180,84,.7)}
 .term-dots .d3{background:rgba(57,255,136,.7)}
 .term-path{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
-.term-line{color:var(--primary);text-shadow:0 0 8px var(--primary-glow);white-space:pre}
+.term-line{color:var(--primary);text-shadow:0 0 8px var(--primary-glow);white-space:pre;min-height:20px}
 .caret{display:inline-block;width:8px;height:16px;background:var(--primary);margin-left:2px;vertical-align:middle;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 
@@ -146,19 +93,14 @@ h1.hero-title .dot{color:var(--primary)}
 @media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
 .stat{border:1px solid var(--border);background:rgba(13,21,24,.6);padding:16px;border-radius:3px;backdrop-filter:blur(6px)}
 .stat-k{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
-.stat-v{margin-top:4px;font-family:var(--display);font-weight:600;font-size:18px;color:var(--primary)}
+.stat-v{margin-top:4px;font-weight:600;font-size:18px;color:var(--primary)}
 
-/* Ticker */
-.ticker{
-  margin:16px -20px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  background:rgba(26,42,47,.4);overflow:hidden;
-}
+.ticker{margin:16px -20px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(26,42,47,.4);overflow:hidden}
 @media(min-width:768px){.ticker{margin:16px -32px}}
 .ticker-track{display:flex;white-space:nowrap;animation:marquee 40s linear infinite;will-change:transform}
 .ticker-track span{margin:0 24px;font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:rgba(57,255,136,.8);font-weight:500}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* Section headings */
 section{padding:64px 0}
 @media(min-width:768px){section{padding:96px 0}}
 .sh{margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--border)}
@@ -166,12 +108,11 @@ section{padding:64px 0}
 .sh-index{background:rgba(57,255,136,.1);color:var(--primary);padding:2px 8px;border-radius:3px;font-family:var(--mono)}
 .sh-cmd{font-family:var(--mono)}
 .sh-cmd .p{color:var(--primary)}
-.sh-title{margin:12px 0 0;font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.01em}
+.sh-title{margin:12px 0 0;font-weight:700;font-size:28px;letter-spacing:-.01em}
 @media(min-width:768px){.sh-title{font-size:36px}}
 .sh-sub{margin:8px 0 0;max-width:640px;color:var(--muted);font-size:14px}
 @media(min-width:768px){.sh-sub{font-size:16px}}
 
-/* Whoami */
 .whoami-grid{display:grid;gap:24px}
 @media(min-width:768px){.whoami-grid{grid-template-columns:3fr 2fr}}
 .card{border:1px solid var(--border);background:rgba(13,21,24,.7);border-radius:6px;padding:24px}
@@ -188,10 +129,9 @@ section{padding:64px 0}
 .id-title{font-family:var(--mono);font-size:12px;color:var(--muted)}
 dl.id-list{margin:16px 0 0;padding:0;font-size:14px}
 dl.id-list > div{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;border-bottom:1px solid rgba(26,42,47,.6);padding-bottom:8px;margin-bottom:8px}
-dl.id-list dt{width:96px;color:rgba(57,255,136,.8);margin:0}
+dl.id-list dt{width:96px;color:rgba(57,255,136,.8);margin:0;font-family:var(--mono);font-size:12px}
 dl.id-list dd{flex:1;margin:0;color:var(--fg)}
 
-/* Experience */
 .exp-list{display:flex;flex-direction:column;gap:24px}
 .exp{border:1px solid var(--border);background:rgba(13,21,24,.7);border-radius:6px;padding:24px;transition:.15s}
 @media(min-width:768px){.exp{padding:32px}}
@@ -201,27 +141,23 @@ dl.id-list dd{flex:1;margin:0;color:var(--fg)}
 .chip-active{background:rgba(57,255,136,.15);color:var(--primary)}
 .chip-upcoming{background:rgba(102,217,239,.15);color:var(--accent)}
 .exp-meta{display:flex;align-items:center;gap:8px;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
-.exp-role{margin:8px 0 0;font-family:var(--display);font-weight:600;font-size:20px}
+.exp-role{margin:8px 0 0;font-weight:600;font-size:20px}
 @media(min-width:768px){.exp-role{font-size:22px}}
 .exp-org{margin-top:4px;font-size:14px;color:var(--primary)}
 .exp-bullets{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:rgba(214,230,232,.85)}
 .exp-bullets li{display:flex;gap:12px}
 .exp-bullets li::before{content:"";flex:none;margin-top:8px;height:6px;width:6px;background:var(--primary);border-radius:9999px}
 
-/* Projects & Blogs cards */
 .grid-3{display:grid;gap:24px;grid-template-columns:1fr}
 @media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
 .grid-2{display:grid;gap:16px;grid-template-columns:1fr}
 @media(min-width:768px){.grid-2{grid-template-columns:repeat(2,1fr)}}
-.pcard{
-  display:flex;flex-direction:column;border:1px solid var(--border);background:rgba(13,21,24,.7);
-  border-radius:6px;padding:24px;transition:.15s;overflow:hidden;
-}
+.pcard{display:flex;flex-direction:column;border:1px solid var(--border);background:rgba(13,21,24,.7);border-radius:6px;padding:24px;transition:.15s;overflow:hidden}
 .pcard:hover{border-color:var(--primary);box-shadow:0 0 32px var(--primary-glow)}
 .pcard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .pcard-id{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
 .pcard-tag{background:rgba(57,255,136,.1);color:var(--primary);padding:2px 8px;border-radius:3px;font-size:10px;text-transform:uppercase;letter-spacing:.2em}
-.pcard h3{font-family:var(--display);font-size:20px;font-weight:700;margin:0;color:var(--fg)}
+.pcard h3{font-size:20px;font-weight:700;margin:0;color:var(--fg)}
 .pcard:hover h3{color:var(--primary)}
 .pcard p{margin:12px 0 0;flex:1;font-size:14px;color:var(--muted)}
 .stack{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
@@ -230,19 +166,17 @@ dl.id-list dd{flex:1;margin:0;color:var(--fg)}
 .pcard-cta .arrow{transition:.15s}
 .pcard:hover .pcard-cta .arrow{transform:translateX(4px)}
 
-/* Skills */
 .skills-grid{display:grid;gap:16px;grid-template-columns:1fr}
 @media(min-width:768px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.skills-grid{grid-template-columns:repeat(3,1fr)}}
 .scard{border:1px solid var(--border);background:rgba(13,21,24,.7);border-radius:6px;padding:20px;transition:.15s}
 .scard:hover{border-color:rgba(57,255,136,.5)}
 .scard-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.scard h3{margin:0;font-family:var(--display);font-size:16px;font-weight:600;color:var(--primary)}
+.scard h3{margin:0;font-size:16px;font-weight:600;color:var(--primary)}
 .scard-count{font-family:var(--mono);font-size:10px;color:var(--muted)}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{border:1px solid var(--border);background:rgba(5,8,10,.6);padding:4px 8px;border-radius:3px;font-size:12px;color:rgba(214,230,232,.85)}
 
-/* Certs */
 .certs{display:grid;gap:12px;grid-template-columns:1fr}
 @media(min-width:640px){.certs{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.certs{grid-template-columns:repeat(3,1fr)}}
@@ -252,7 +186,6 @@ dl.id-list dd{flex:1;margin:0;color:var(--fg)}
 .cert-n{font-size:14px;font-weight:500;color:var(--fg)}
 .cert-issuer{margin-top:2px;font-size:12px;color:var(--muted)}
 
-/* Contact */
 .contact-grid{display:grid;gap:24px;grid-template-columns:1fr}
 @media(min-width:768px){.contact-grid{grid-template-columns:3fr 2fr}}
 .secure{border:1px solid rgba(57,255,136,.4);background:rgba(13,21,24,.7);padding:24px;border-radius:6px;box-shadow:0 0 40px rgba(57,255,136,.12)}
@@ -261,29 +194,18 @@ dl.id-list dd{flex:1;margin:0;color:var(--fg)}
 .secure-lines{margin-top:16px;display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:14px}
 .secure-lines .p{color:var(--primary)}
 .secure-lines .m{color:var(--muted)}
-.mail-btn{
-  margin-top:32px;display:inline-flex;align-items:center;gap:12px;background:var(--primary);color:#001208;
-  padding:14px 22px;border-radius:3px;font-size:16px;font-weight:600;transition:.15s;
-}
+.mail-btn{margin-top:32px;display:inline-flex;align-items:center;gap:12px;background:var(--primary);color:#001208;padding:14px 22px;border-radius:3px;font-size:16px;font-weight:600;transition:.15s}
 .mail-btn:hover{box-shadow:0 0 32px var(--primary-glow)}
 ul.channels{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.channel{
-  display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);
-  background:rgba(13,21,24,.6);padding:12px 16px;border-radius:6px;transition:.15s;
-}
+.channel{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);background:rgba(13,21,24,.6);padding:12px 16px;border-radius:6px;transition:.15s}
 .channel:hover{border-color:rgba(57,255,136,.5);color:var(--primary)}
 .channel-left{display:flex;align-items:center;gap:12px}
-.channel-icon{
-  flex:none;display:inline-flex;align-items:center;justify-content:center;
-  height:36px;width:36px;border:1px solid var(--border);background:rgba(5,8,10,.6);
-  border-radius:3px;color:var(--primary);
-}
+.channel-icon{flex:none;display:inline-flex;align-items:center;justify-content:center;height:36px;width:36px;border:1px solid var(--border);background:rgba(5,8,10,.6);border-radius:3px;color:var(--primary)}
 .channel-icon svg{width:16px;height:16px}
 .channel-k{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
 .channel-v{margin-top:2px;font-size:14px;color:var(--fg)}
 .channel-arrow{color:var(--primary)}
 
-/* Footer */
 footer{margin-top:64px;border-top:1px solid var(--border);padding:32px 0;font-size:12px;color:var(--muted)}
 .foot-inner{display:flex;flex-direction:column;gap:16px;justify-content:space-between}
 @media(min-width:768px){.foot-inner{flex-direction:row;align-items:center}}
@@ -292,17 +214,18 @@ footer{margin-top:64px;border-top:1px solid var(--border);padding:32px 0;font-si
 </style>
 </head>
 <body>
+
 <div class="bg-fx bg-grid"></div>
 <div class="bg-fx bg-scanlines"></div>
 <div class="bg-glow"></div>
 
 <header class="nav">
   <div class="nav-inner">
-    <a href="#top" class="brand">
+    <a class="brand" href="#top">
       <span class="brand-badge">AH</span>
-      <span>abderrahim<span class="brand-dot">.hb</span></span>
+      <span>abderrahim<span style="color:var(--primary)">.</span>hb</span>
     </a>
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links">
       <a href="#whoami"><span class="slash">./</span>whoami</a>
       <a href="#experience"><span class="slash">./</span>experience</a>
       <a href="#projects"><span class="slash">./</span>projects</a>
@@ -311,8 +234,8 @@ footer{margin-top:64px;border-top:1px solid var(--border);padding:32px 0;font-si
       <a href="#blogs"><span class="slash">./</span>blogs</a>
       <a href="#contact"><span class="slash">./</span>contact</a>
     </nav>
-    <a href="#contact" class="cta-hire">$ hire --me</a>
-    <button class="menu-btn" id="menuBtn" aria-label="menu"><span></span><span></span><span></span></button>
+    <a class="cta-hire" href="#contact">$ hire --me</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="inner">
@@ -327,165 +250,213 @@ footer{margin-top:64px;border-top:1px solid var(--border);padding:32px 0;font-si
   </div>
 </header>
 
-<main>
-<div class="wrap">
+<main id="top">
+  <div class="wrap hero">
+    <div class="status-line"><span class="pulse"></span> system online · marrakech, ma · uptime 24/7</div>
+    <h1 class="hero-title">Abderrahime<br/>Elhammou Brahimi<span class="dot">.</span></h1>
+    <p class="lead">Cybersecurity specialist focused on <span class="hl">offensive &amp; defensive security</span>. Bug hunter on Bugcrowd, builder of pentest &amp; monitoring tooling, and SOC-oriented engineer. I break systems so I can harden them.</p>
 
-<section id="top" class="hero">
-  <div class="status-line"><span class="pulse"></span><span>system online · marrakech, ma · uptime 24/7</span></div>
-  <h1 class="hero-title">Abderrahime<br>Elhammou Brahimi<span class="dot">.</span></h1>
-  <p class="lead">Cybersecurity specialist focused on <span class="hl">offensive &amp; defensive security</span>. Bug hunter on Bugcrowd, builder of pentest tooling, and SOC-oriented engineer. I break systems so I can harden them.</p>
-
-  <div class="terminal">
-    <div class="term-bar">
-      <div class="term-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
-      <span class="term-path">/dev/pts/0</span>
+    <div class="terminal">
+      <div class="term-bar">
+        <div class="term-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+        <div class="term-path">/dev/pts/0</div>
+      </div>
+      <div class="term-line"><span id="tw"></span><span class="caret"></span></div>
     </div>
-    <div class="term-line" id="typewriter"><span id="tw"></span><span class="caret"></span></div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="#projects">./view_projects <span>→</span></a>
+      <a class="btn btn-ghost" href="#contact"><span class="prompt">$</span> establish_contact</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-k">BUG BOUNTIES</div><div class="stat-v">Bugcrowd</div></div>
+      <div class="stat"><div class="stat-k">SPECIALTY</div><div class="stat-v">Web / Net / SOC</div></div>
+      <div class="stat"><div class="stat-k">PROJECTS</div><div class="stat-v">10 released</div></div>
+      <div class="stat"><div class="stat-k">CERTS</div><div class="stat-v">16+</div></div>
+    </div>
+
+    <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
   </div>
 
-  <div class="actions">
-    <a href="#projects" class="btn btn-primary"><span>./view_projects</span><span>→</span></a>
-    <a href="#contact" class="btn btn-ghost"><span class="prompt">$</span> establish_contact</a>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><div class="stat-k">BUG BOUNTIES</div><div class="stat-v">Bugcrowd</div></div>
-    <div class="stat"><div class="stat-k">SPECIALTY</div><div class="stat-v">Web / Net / Sys</div></div>
-    <div class="stat"><div class="stat-k">TOOLING</div><div class="stat-v">3 released</div></div>
-    <div class="stat"><div class="stat-k">CERTS</div><div class="stat-v">16+</div></div>
-  </div>
-</section>
-
-<div class="ticker">
-  <div class="ticker-track" id="ticker"></div>
-</div>
-
-<section id="whoami">
-  <div class="sh">
-    <div class="sh-tag"><span class="sh-index">01</span><span class="sh-cmd"><span class="p">$</span> cat ./profile.md</span></div>
-    <h2 class="sh-title">whoami</h2>
-  </div>
-  <div class="whoami-grid">
-    <div class="card">
-      <p class="whoami-p1">Analytical cybersecurity specialist driven by problem-solving and passionate about offensive &amp; defensive security, systems, and networks. Hands-on experience in <span class="hl">bug hunting on Bugcrowd</span>, in web / network / system pentesting, and in developing automated security tooling.</p>
-      <p class="whoami-p2">Currently studying <span class="hl">Digital Infrastructure — Cybersecurity</span> at the Specialized Institute of Applied Technology (NTIC), 2024 — 2026. Interested in offensive security, AI-augmented tooling, systems programming, and CTF competitions.</p>
-      <div class="lang-grid">
-        <div class="lang"><div class="lang-k">Arabic</div><div class="lang-v">Native</div></div>
-        <div class="lang"><div class="lang-k">English</div><div class="lang-v">Fluent</div></div>
-        <div class="lang"><div class="lang-k">French</div><div class="lang-v">Intermediate</div></div>
+  <section id="whoami"><div class="wrap">
+    <div class="sh">
+      <div class="sh-tag"><span class="sh-index">01</span><span class="sh-cmd"><span class="p">$</span> cat ./profile.md</span></div>
+      <h2 class="sh-title">whoami</h2>
+    </div>
+    <div class="whoami-grid">
+      <div class="card">
+        <p class="whoami-p1">Analytical cybersecurity specialist driven by problem-solving and passionate about <span class="hl">offensive &amp; defensive security</span>, systems, and networks. Hands-on experience in bug hunting on Bugcrowd, web / network / system pentesting, SIEM deployment (Wazuh, ELK) and automated security tooling.</p>
+        <p class="whoami-p2">Currently studying <span class="hl">Digital Infrastructure — Cybersecurity</span> at the Specialized Institute of Applied Technology (NTIC), 2024 — 2026. Interested in offensive security, AI-augmented tooling, monitoring/SOC stacks, and CTF competitions.</p>
+        <div class="lang-grid">
+          <div class="lang"><div class="lang-k">Arabic</div><div class="lang-v">Native</div></div>
+          <div class="lang"><div class="lang-k">English</div><div class="lang-v">Fluent</div></div>
+          <div class="lang"><div class="lang-k">French</div><div class="lang-v">Intermediate</div></div>
+        </div>
+      </div>
+      <div class="card glow">
+        <div class="id-title">// id_card.json</div>
+        <dl class="id-list">
+          <div><dt>"name":</dt><dd>"Abderrahime Elhammou Brahimi"</dd></div>
+          <div><dt>"role":</dt><dd>"Cybersecurity Specialist"</dd></div>
+          <div><dt>"location":</dt><dd>"Marrakech, Morocco"</dd></div>
+          <div><dt>"status":</dt><dd>"Open to opportunities"</dd></div>
+          <div><dt>"focus":</dt><dd>"Pentest · cybersecurity Consultant · SOC ·  IT support · Network and system "</dd></div>
+        </dl>
       </div>
     </div>
-    <aside class="card glow">
-      <div class="id-title">// id_card.json</div>
-      <dl class="id-list">
-        <div><dt>"name":</dt><dd>"Abderrahime Elhammou Brahimi"</dd></div>
-        <div><dt>"role":</dt><dd>"Cybersecurity Specialist"</dd></div>
-        <div><dt>"location":</dt><dd>"Marrakech, Morocco"</dd></div>
-        <div><dt>"status":</dt><dd>"Open to opportunities"</dd></div>
-        <div><dt>"focus":</dt><dd>"Pentest · Bug Bounty · SOC"</dd></div>
-      </dl>
-    </aside>
-  </div>
-</section>
+  </div></section>
 
-<section id="experience">
-  <div class="sh">
-    <div class="sh-tag"><span class="sh-index">02</span><span class="sh-cmd"><span class="p">$</span> git log --oneline experience/</span></div>
-    <h2 class="sh-title">Experience</h2>
-    <p class="sh-sub">Field work — from live bug bounty programs to network security deployments.</p>
-  </div>
-  <div class="exp-list" id="expList"></div>
-</section>
-
-<section id="projects">
-  <div class="sh">
-    <div class="sh-tag"><span class="sh-index">03</span><span class="sh-cmd"><span class="p">$</span> ls -la ./projects/</span></div>
-    <h2 class="sh-title">Projects</h2>
-    <p class="sh-sub">Security tooling built for real workflows — recon, scanning, and AI-augmented reporting.</p>
-  </div>
-  <div class="grid-3" id="projectList"></div>
-</section>
-
-<section id="skills">
-  <div class="sh">
-    <div class="sh-tag"><span class="sh-index">04</span><span class="sh-cmd"><span class="p">$</span> ./skills --list</span></div>
-    <h2 class="sh-title">Skills</h2>
-    <p class="sh-sub">The stack I reach for across offensive, defensive, and infrastructure work.</p>
-  </div>
-  <div class="skills-grid" id="skillsGrid"></div>
-</section>
-
-<section id="certs">
-  <div class="sh">
-    <div class="sh-tag"><span class="sh-index">05</span><span class="sh-cmd"><span class="p">$</span> grep -r 'certified' ./credentials/</span></div>
-    <h2 class="sh-title">Certifications</h2>
-    <p class="sh-sub">Continuous learning across networking, offensive security, SOC, and endpoint compliance.</p>
-  </div>
-  <div class="certs" id="certList"></div>
-</section>
-
-<section id="blogs">
-  <div class="sh">
-    <div class="sh-tag"><span class="sh-index">06</span><span class="sh-cmd"><span class="p">$</span> cat ./blogs/*.md | head</span></div>
-    <h2 class="sh-title">Blogs</h2>
-    <p class="sh-sub">Write-ups and technical notes on web security challenges — published on Medium.</p>
-  </div>
-  <div class="grid-2" id="blogList"></div>
-</section>
-
-<section id="contact">
-  <div class="sh">
-    <div class="sh-tag"><span class="sh-index">07</span><span class="sh-cmd"><span class="p">$</span> ./establish_contact --secure</span></div>
-    <h2 class="sh-title">Establish contact</h2>
-    <p class="sh-sub">Open to bug bounty invites, pentest engagements, SOC roles, and collaborative research.</p>
-  </div>
-  <div class="contact-grid">
-    <div class="secure">
-      <div class="secure-title">// secure_channel.sh</div>
-      <div class="secure-lines">
-        <div><span class="p">$</span> ssh contact@abderrahimhb.site</div>
-        <div class="m">→ handshake OK · session established</div>
-        <div><span class="p">$</span> send --priority high</div>
-      </div>
-      <a class="mail-btn" href="mailto:abderrahimhb20@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        <span>abderrahimhb20@gmail.com</span><span>↗</span>
-      </a>
+  <section id="experience"><div class="wrap">
+    <div class="sh">
+      <div class="sh-tag"><span class="sh-index">02</span><span class="sh-cmd"><span class="p">$</span> git log --oneline experience/</span></div>
+      <h2 class="sh-title">Experience</h2>
+      <p class="sh-sub">Field work — from live bug bounty programs to network security and monitoring deployments.</p>
     </div>
-    <ul class="channels" id="channels"></ul>
-  </div>
-</section>
+    <div class="exp-list" id="expList"></div>
+  </div></section>
 
-</div>
-<footer>
-  <div class="wrap foot-inner">
+  <section id="projects"><div class="wrap">
+    <div class="sh">
+      <div class="sh-tag"><span class="sh-index">03</span><span class="sh-cmd"><span class="p">$</span> ls -la ./projects/</span></div>
+      <h2 class="sh-title">Projects</h2>
+      <p class="sh-sub">Security tooling and monitoring stacks built for real workflows — recon, scanning, SIEM, IDS and alerting.</p>
+    </div>
+    <div class="grid-3" id="projectList"></div>
+  </div></section>
+
+  <section id="skills"><div class="wrap">
+    <div class="sh">
+      <div class="sh-tag"><span class="sh-index">04</span><span class="sh-cmd"><span class="p">$</span> ./skills --list</span></div>
+      <h2 class="sh-title">Skills</h2>
+      <p class="sh-sub">The stack I reach for across offensive, defensive, and infrastructure work.</p>
+    </div>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div></section>
+
+  <section id="certs"><div class="wrap">
+    <div class="sh">
+      <div class="sh-tag"><span class="sh-index">05</span><span class="sh-cmd"><span class="p">$</span> grep -r 'certified' ./credentials/</span></div>
+      <h2 class="sh-title">Certifications</h2>
+      <p class="sh-sub">Continuous learning across networking, offensive security, SOC, and endpoint compliance.</p>
+    </div>
+    <div class="certs" id="certList"></div>
+  </div></section>
+
+  <section id="blogs"><div class="wrap">
+    <div class="sh">
+      <div class="sh-tag"><span class="sh-index">06</span><span class="sh-cmd"><span class="p">$</span> cat ./blogs/*.md | head</span></div>
+      <h2 class="sh-title">Blogs</h2>
+      <p class="sh-sub">Write-ups and technical notes on web security and blue-team tooling — published on Medium.</p>
+    </div>
+    <div class="grid-2" id="blogList"></div>
+  </div></section>
+
+  <section id="contact"><div class="wrap">
+    <div class="sh">
+      <div class="sh-tag"><span class="sh-index">07</span><span class="sh-cmd"><span class="p">$</span> ./establish_contact --secure</span></div>
+      <h2 class="sh-title">Establish contact</h2>
+      <p class="sh-sub">Open to bug bounty invites, pentest engagements, SOC roles, and collaborative research.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="secure">
+        <div class="secure-title">// secure_channel.sh</div>
+        <div class="secure-lines">
+          <div><span class="p">$</span> ssh contact@abderrahimhb.site</div>
+          <div class="m">→ handshake OK · session established</div>
+          <div><span class="p">$</span> send --priority high</div>
+        </div>
+        <a class="mail-btn" href="mailto:abderrahimhb20@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span>abderrahimhb20@gmail.com</span><span>↗</span>
+        </a>
+      </div>
+      <ul class="channels" id="channels"></ul>
+    </div>
+  </div></section>
+
+  <footer><div class="wrap foot-inner">
     <div><span class="p">$</span> echo "© <span id="year"></span> Abderrahime Elhammou Brahimi"</div>
-    <div>built with <span class="p">/dev/null</span> and lots of coffee ☕</div>
-  </div>
-</footer>
+    <div>built with /dev/null and lots of coffee ☕</div>
+  </div></footer>
 </main>
 
 <script>
 /* ===== Data ===== */
 const EXPERIENCE=[
-  {role:"Security Researcher — Bug Bounty",org:"Bugcrowd",period:"Apr 2025 — Present",status:"ACTIVE",bullets:[
-    "Proactive vulnerability research on web applications via ethical exploitation and responsible disclosure.",
-    "Discovery of high-impact flaws with clear technical reports and remediation guidance."]},
-  {role:"Network Security Specialist — Internship (PFE)",org:"Nextwi",period:"Mar 2026 · 1 month",status:"UPCOMING",bullets:[
-    "Deployed a secure Wi-Fi hotspot (MikroTik, Wibox) with captive portal and RADIUS authentication.",
-    "Configured DHCP, NAT, firewall, and set up a WireGuard VPN for secure remote access.",
-    "Performance testing and validation across multiple devices."]}
+  {status:"active",period:"2024 — present",role:"Bug Bounty Hunter",org:"Bugcrowd",
+   bullets:["Hunting web vulnerabilities across public and invite-only programs (XSS, IDOR, SSRF, auth bypass).",
+            "Writing clear, reproducible reports with impact analysis and remediation guidance.",
+            "Building custom recon automation to speed up scope discovery."]},
+  {status:"active",period:"2025",role:"SOC anaylst and IT support  (Projects)",org:"Self-directed / Lab & VPS",
+   bullets:["Deployed Wazuh SIEM with Windows agents and Snort 3 IDS integration for real-time detection.",
+            "Built a full ELK stack (Elasticsearch, Logstash, Kibana) on Ubuntu 22.04 to centralize MikroTik syslog.",
+            "Implemented Nagios Core with NRPE for remote VPS and SNMP monitoring for MikroTik routers.",
+            "Created a MikroTik alert system with Telegram bot + email notifications.",
+            "Configured Pi-hole for network-wide ad/tracker blocking and DNS management.",
+            "IT support, particularly troubleshooting issues related to computers and IT equipment."]},
+  {status:"upcoming",period:"2024 — 2026",role:"Digital Infrastructure — Cybersecurity",org:"ISTA NTIC, Marrakech",
+   bullets:["Networks, systems administration, security operations and infrastructure hardening.",
+            "CTF competitions and lab-based offensive/defensive exercises."]}
 ];
+
 const PROJECTS=[
-  {name:"SIJIL",tag:"framework",desc:"Web pentest automation framework — recon, vuln scanning (XSS / SQLi / LFI / SSRF / SSTI), and a local Ollama-powered AI agent for analysis & report generation.",stack:["Python","Ollama","Recon","Fuzzing"]},
-  {name:"Cybrahimi-scan",tag:"scanner",desc:"Advanced Python port scanner with service detection and a graphical interface built for fast reconnaissance.",stack:["Python","Tkinter","Sockets"]},
-  {name:"Cybrahimi-DOS",tag:"lab-tool",desc:"Educational Bash tool for studying DoS behaviour inside controlled lab environments. Defensive research only.",stack:["Bash","Linux","Lab"]}
+  {name:"MikroTik Syslog → ELK Stack",tag:"SIEM",
+   desc:"Real-time monitoring of MikroTik RouterOS syslog with Elasticsearch + Logstash + Kibana on Ubuntu 22.04. Centralizes firewall, DHCP, auth and warning events in interactive dashboards.",
+   stack:["Elasticsearch","Logstash","Kibana","MikroTik","Ubuntu 22.04"],
+   href:"https://github.com/abderrahimhb20/elastic",cta:"view repo"},
+  {name:"ELK on VPS + MikroTik — Technical Report",tag:"Report",
+   desc:"Full technical report covering the deployment of the ELK stack on an Ubuntu VPS with MikroTik integration, hardening and log pipeline design.",
+   stack:["ELK","VPS","MikroTik","Documentation"],
+   href:"https://drive.google.com/file/d/1on4IL3ujgXd81UAN5zl0yOKoFf_yydDY/view?usp=sharing",cta:"read report"},
+  {name:"MikroTik Syslog Monitoring — Chapter",tag:"Report",
+   desc:"Chapter detailing real-time syslog monitoring of MikroTik RouterOS with the ELK stack: architecture, Logstash parsing and Kibana visualizations.",
+   stack:["ELK","Syslog","Kibana","RouterOS"],
+   href:"https://drive.google.com/file/d/1HQYHDPCr2tUR-rCdXfrn9jyxNQ74TJjQ/view",cta:"read report"},
+  {name:"MikroTik Alert System",tag:"Alerting",
+   desc:"Alerting pipeline for MikroTik events with a Telegram bot and email notifications — instant delivery of critical router and firewall alerts.",
+   stack:["Telegram Bot API","SMTP","MikroTik","Scripting"],
+   href:"https://drive.google.com/file/d/1Q3etmk-w_bs9IJu2i6fKfKmCCVwz-T3r/view?usp=sharing",cta:"read report"},
+  {name:"Snort 3 IDS + Wazuh SIEM",tag:"IDS/SIEM",
+   desc:"Complete zero-to-production guide integrating Snort 3 intrusion detection with Wazuh SIEM: rule tuning, log ingestion, decoders and alert correlation.",
+   stack:["Snort 3","Wazuh","Linux","Detection rules"],
+   href:"https://github.com/abderrahimhb20/IDS-wazuh",cta:"view repo"},
+  {name:"Nagios Core + NRPE",tag:"Monitoring",
+   desc:"Nagios Core monitoring with NRPE agents for remote VPS hosts — CPU, memory, disk, services and custom check plugins.",
+   stack:["Nagios Core","NRPE","Linux","VPS"],
+   href:"https://github.com/abderrahimhb20/nagios-machines",cta:"view repo"},
+  {name:"Nagios for MikroTik via SNMP",tag:"Monitoring",
+   desc:"Monitoring MikroTik routers from Nagios over SNMP: interface traffic, uptime, CPU/memory and threshold-based alerting.",
+   stack:["Nagios","SNMP","MikroTik","RouterOS"],
+   href:"https://github.com/abderrahimhb20/nagios-mikrotik",cta:"view repo"},
+  {name:"Pi-hole DNS Management",tag:"Network",
+   desc:"DNS management and network-wide ad/tracker blocking with Pi-hole: blocklists, local DNS records, upstream resolvers and query analytics.",
+   stack:["Pi-hole","DNS","Linux","Networking"],
+   href:"https://github.com/abderrahimhb20/pihole",cta:"view repo"},
+  {name:"OpenVPN on pfSense",tag:"VPN",
+   desc:"Step-by-step deployment of an OpenVPN server on pfSense: CA creation, user certificates, firewall rules, client export utility and secure remote access.",
+   stack:["OpenVPN","pfSense","Firewall","PKI","Routing"],
+   href:"https://drive.google.com/file/d/1qN2xKJKCpd-X3ANDp7k1ouid27r6MQTY/view?usp=sharing",cta:"read report"},
+  {name:"Adversary Simulation with MITRE CALDERA",tag:"Red Team",
+   desc:"Practical adversary simulation using MITRE CALDERA: deploying agents, running ATT&CK techniques, building operations and analyzing results.",
+   stack:["MITRE CALDERA","ATT&CK","Red Team","Windows/Linux"],
+   href:"https://drive.google.com/file/d/1vpD_y6IDyw9y1zgDP6reQVm3_GDFAMPz/view?usp=sharing",cta:"read report"},
+  {name:"Velociraptor for DFIR",tag:"DFIR",
+   desc:"Installation and configuration of Velociraptor for digital forensics and incident response: server setup, client deployment, artifact collection and threat hunting.",
+   stack:["Velociraptor","DFIR","Incident Response","Forensics"],
+   href:"https://drive.google.com/file/d/1co4fqWBQwM76QClMw8lGu0amVIFgm0O_/view?usp=sharing",cta:"read report"},
+  {name:"Sophos Detection Lab",tag:"EDR",
+   desc:"Threat detection and response lab with Sophos: configuring policies, live protection, EDR investigation and alert triage.",
+   stack:["Sophos","EDR","Endpoint Security","Detection"],
+   href:"https://drive.google.com/file/d/10afuFBT2IrcDsyKKb8S0sT6FZjDwfRY8/view?usp=sharing",cta:"read report"}
+   
 ];
+
 const SKILLS=[
   {title:"Pentest",items:["OSINT","Network / System / Web","OWASP Top 10","Privilege Escalation"]},
   {title:"Offensive Tools",items:["Nmap","Burp Suite","OWASP ZAP","Nessus","Nikto","Nuclei","Wireshark","Metasploit","Shodan","Maltego","recon-ng"]},
   {title:"SOC / Blue Team",items:["Wazuh","Elastic Security","Snort","AIDE","Threat Hunting","EDR","Log Analysis"]},
-  {title:"DFIR",items:["MITRE ATT&CK","Wireshark","Velociraptor","GRR Rapid Response","Windows Registry","Elastic Stack"]},
+  {title:"DFIR",items:["MITRE ATT&CK","Wireshark","Velociraptor","GRR Rapid Response","Windows Registry","Elastic Stack" ,]},
   {title:"Networks & Systems",items:["TCP/IP","Routing & Switching","Windows Server","Active Directory","Debian / Kali","pfSense","OpenVPN","WireGuard","Hardening"]},
   {title:"Virtualization",items:["VMware","VirtualBox","Proxmox","ESXi","Hyper-V","Docker"]},
   {title:"Programming",items:["Python","Bash","PowerShell","JavaScript","HTML/CSS","MySQL","MongoDB"]}
@@ -508,15 +479,22 @@ const CERTS=[
   ["Offensive Security Operations","Cybrary"],
   ["ST4F1T CTF — GCDSTE Club","ENSA Marrakech"]
 ];
-const BLOGS=[
-  {title:"PortSwigger — Access Control Vulnerabilities",tag:"Access Control",href:"https://medium.com/@abderrahimhb20/portsigger-access-control-vulnerabilities-f1a2173729a2"},
-  {title:"PortSwigger — Path Traversal",tag:"Path Traversal",href:"https://medium.com/@abderrahimhb20/portswigger-path-traversal-aa586f97ee55"},
-  {title:"PortSwigger — Server-Side Template Injection (SSTI)",tag:"SSTI",href:"https://medium.com/@abderrahimhb20/portswigger-server-side-template-injection-ssti-afcc07c13b61"},
-  {title:"PortSwigger — OS Command Injection",tag:"Command Injection",href:"https://medium.com/@abderrahimhb20/portswigger-os-command-injection-d87c9a3d8f8f"}
-];
-const TICKER=["XSS","SQLi","SSRF","LFI","SSTI","RCE","IDOR","CSRF","AUTH-BYPASS","PRIV-ESC","SUBDOMAIN-TAKEOVER","OPEN-REDIRECT","PATH-TRAVERSAL","MITRE ATT&CK","OWASP TOP 10","BURP","NMAP","WAZUH","WIRESHARK"];
 
-/* ===== Icons ===== */
+const BLOGS=[
+  {title:"Déploiement du SIEM Wazuh et intégration d'un agent Windows",tag:"Wazuh / SIEM",
+   href:"https://medium.com/@abderrahimhb20/d%C3%A9ploiement-du-siem-wazuh-et-int%C3%A9gration-dun-agent-windows-91feee61f264"},
+  {title:"PortSwigger — Access Control Vulnerabilities",tag:"Access Control",
+   href:"https://medium.com/@abderrahimhb20/portsigger-access-control-vulnerabilities-f1a2173729a2"},
+  {title:"PortSwigger — Path Traversal",tag:"Path Traversal",
+   href:"https://medium.com/@abderrahimhb20/portswigger-path-traversal-aa586f97ee55"},
+  {title:"PortSwigger — Server-Side Template Injection (SSTI)",tag:"SSTI",
+   href:"https://medium.com/@abderrahimhb20/portswigger-server-side-template-injection-ssti-afcc07c13b61"},
+  {title:"PortSwigger — OS Command Injection",tag:"Command Injection",
+   href:"https://medium.com/@abderrahimhb20/portswigger-os-command-injection-d87c9a3d8f8f"}
+];
+
+const TICKER=["XSS","SQLi","SSRF","LFI","SSTI","RCE","IDOR","CSRF","AUTH-BYPASS","PRIV-ESC","SUBDOMAIN-TAKEOVER","OPEN-REDIRECT","PATH-TRAVERSAL","MITRE ATT&CK","OWASP TOP 10","BURP","NMAP","WAZUH","SNORT","ELK","NAGIOS","PI-HOLE","MIKROTIK","WIRESHARK"];
+
 const ICONS={
   mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
   phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>',
@@ -525,6 +503,7 @@ const ICONS={
   medium:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.8 5.3A.9.9 0 0 0 2.5 4L0 1.5V1.2h7.7l6 13.1 5.2-13.1H24v.3l-2.1 2a.6.6 0 0 0-.2.6v14.6a.6.6 0 0 0 .2.6l2.1 2v.3h-10.5v-.3l2.1-2.1c.2-.2.2-.3.2-.6V6.7l-6 15.1h-.8l-7-15.1v10.2c-.1.4 0 .8.3 1.1l2.8 3.4v.3H0v-.3l2.8-3.4c.3-.3.4-.7.3-1.1V5.3Z"/></svg>',
   pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>'
 };
+
 const CHANNELS=[
   {label:"Email",value:"abderrahimhb20@gmail.com",href:"mailto:abderrahimhb20@gmail.com",icon:"mail"},
   {label:"Phone",value:"+212 684 136 110",href:"tel:+212684136110",icon:"phone"},
@@ -537,26 +516,23 @@ const CHANNELS=[
 /* ===== Render ===== */
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-// ticker
 document.getElementById("ticker").innerHTML=[...TICKER,...TICKER].map(t=>`<span>▸ ${esc(t)}</span>`).join("");
 
-// experience
 document.getElementById("expList").innerHTML=EXPERIENCE.map(e=>`
   <article class="exp">
-    <div class="exp-head"><div>
-      <div class="exp-meta">
-        <span class="chip ${e.status==='ACTIVE'?'chip-active':'chip-upcoming'}">● ${e.status}</span>
-        <span>${esc(e.period)}</span>
+    <div class="exp-head">
+      <div>
+        <span class="chip ${e.status==="active"?"chip-active":"chip-upcoming"}">● ${esc(e.status)}</span>
+        <div class="exp-role">${esc(e.role)}</div>
+        <div class="exp-org">@ ${esc(e.org)}</div>
       </div>
-      <h3 class="exp-role">${esc(e.role)}</h3>
-      <div class="exp-org">@ ${esc(e.org)}</div>
-    </div></div>
-    <ul class="exp-bullets">${e.bullets.map(b=>`<li><span>${esc(b)}</span></li>`).join("")}</ul>
+      <div class="exp-meta">${esc(e.period)}</div>
+    </div>
+    <ul class="exp-bullets">${e.bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>
   </article>`).join("");
 
-// projects
 document.getElementById("projectList").innerHTML=PROJECTS.map((p,i)=>`
-  <a class="pcard" href="https://github.com/abderrahimhb20" target="_blank" rel="noreferrer">
+  <a class="pcard" href="${p.href}" target="_blank" rel="noopener noreferrer">
     <div class="pcard-top">
       <span class="pcard-id">proj/${String(i+1).padStart(2,"0")}</span>
       <span class="pcard-tag">${esc(p.tag)}</span>
@@ -564,43 +540,40 @@ document.getElementById("projectList").innerHTML=PROJECTS.map((p,i)=>`
     <h3>${esc(p.name)}</h3>
     <p>${esc(p.desc)}</p>
     <div class="stack">${p.stack.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
-    <div class="pcard-cta"><span>view repo</span><span class="arrow">→</span></div>
+    <div class="pcard-cta">${esc(p.cta||"view repo")} <span class="arrow">→</span></div>
   </a>`).join("");
 
-// skills
 document.getElementById("skillsGrid").innerHTML=SKILLS.map(g=>`
   <div class="scard">
     <div class="scard-head"><h3>${esc(g.title)}</h3><span class="scard-count">[${g.items.length}]</span></div>
     <div class="tags">${g.items.map(i=>`<span>${esc(i)}</span>`).join("")}</div>
   </div>`).join("");
 
-// certs
 document.getElementById("certList").innerHTML=CERTS.map(([n,i],idx)=>`
   <div class="cert">
     <span class="cert-i">${String(idx+1).padStart(2,"0")}</span>
     <div><div class="cert-n">${esc(n)}</div><div class="cert-issuer">${esc(i)}</div></div>
   </div>`).join("");
 
-// blogs
 document.getElementById("blogList").innerHTML=BLOGS.map((b,i)=>`
-  <a class="pcard" href="${b.href}" target="_blank" rel="noreferrer">
+  <a class="pcard" href="${b.href}" target="_blank" rel="noopener noreferrer">
     <div class="pcard-top">
       <span class="pcard-id">post/${String(i+1).padStart(2,"0")}</span>
       <span class="pcard-tag">${esc(b.tag)}</span>
     </div>
     <h3>${esc(b.title)}</h3>
-    <div class="pcard-cta">${ICONS.medium.replace("<svg","<svg width=\"16\" height=\"16\"")}<span>read on medium</span><span class="arrow">→</span></div>
+    <div class="pcard-cta"><span style="width:14px;height:14px;display:inline-flex">${ICONS.medium}</span> read on medium <span class="arrow">→</span></div>
   </a>`).join("");
 
-// channels
 document.getElementById("channels").innerHTML=CHANNELS.map(c=>{
   const inner=`<div class="channel">
     <div class="channel-left">
       <span class="channel-icon">${ICONS[c.icon]}</span>
       <div><div class="channel-k">${esc(c.label)}</div><div class="channel-v">${esc(c.value)}</div></div>
-    </div>${c.href?'<span class="channel-arrow">→</span>':''}
+    </div>
+    ${c.href?'<span class="channel-arrow">→</span>':''}
   </div>`;
-  return `<li>${c.href?`<a href="${c.href}" ${c.href.startsWith('http')?'target="_blank" rel="noreferrer"':''}>${inner}</a>`:inner}</li>`;
+  return `<li>${c.href?`<a href="${c.href}" target="_blank" rel="noopener noreferrer">${inner}</a>`:inner}</li>`;
 }).join("");
 
 document.getElementById("year").textContent=new Date().getFullYear();
@@ -614,7 +587,8 @@ mobileMenu.addEventListener("click",e=>{if(e.target.tagName==="A")mobileMenu.cla
 const lines=[
   "root@abderrahim:~# whoami",
   "root@abderrahim:~# nmap -A target.tld",
-  "root@abderrahim:~# ./sijil --recon --ai",
+  "root@abderrahim:~# systemctl status wazuh-manager",
+  "root@abderrahim:~# tail -f /var/log/mikrotik.log | logstash",
   "root@abderrahim:~# hunt.sh --scope bugcrowd"
 ];
 const tw=document.getElementById("tw");
